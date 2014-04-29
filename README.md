@@ -31,17 +31,9 @@ La Boutique’s versatility provides you with the tools to weave elegant eCommer
   
 * Masonry/Isotope style product list with price filtering  
   
-* Best selling products widget on category pages allows customers to find your most popular products with ease  
-  
-* “Featured” products display extra large in the product list for higher visibility  
-  
-* Sharing icons for Twitter, Facebook, Google+ and Pinterest lets customers share your products on their favourite social network  
-  
-* Facebook comment style on product pages for better social media integration  
-  
-* Google maps  
-    
-* Responsive MegaMenu with video, images, maps, form, and multi-level navigation  
+* Sharing icons for Twitter, Facebook, and Pinterest lets customers share your products on their favourite social network  
+ 
+* Responsive MegaMenu 
   
 * Over 360+ retina ready icons from Font Awesome  
   
@@ -52,7 +44,5 @@ La Boutique’s versatility provides you with the tools to weave elegant eCommer
 * Nicely styled elements for your sizing charts, images and notifications  
   
 * Instant search allowing your customers to find the product they want with ease  
-  
-* Masonry style blog with full responsive video support  
   
 * And much more…  
