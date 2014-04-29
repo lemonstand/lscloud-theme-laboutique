@@ -1,0 +1,168 @@
+{% set on_sale = product.onSale %}
+<!-- Product content -->
+<section class="product">
+    <!-- Product info -->
+    <section class="product-info">
+        <div class="container" itemscope itemtype="http://data-vocabulary.org/Product">
+            <div class="row">
+                <div class="span4">
+                    <div class="product-images">
+                        <div class="box">
+                            <div class="primary">
+                                <img itemprop="image" src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" 
+                                data-zoom-image="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.images.first.title }}"/>
+                            </div>
+
+                            {% if product.images.count > 1 %}
+                            <div class="thumbs" id="gallery">
+                                <ul class="thumbs-list">
+                                    {% set counter=1 %}
+                                    {% for image in product.images %}
+                                    <li>
+                                        <a class="{{ counter == 1 ? 'active' : null }}" href="#" data-image="{{ image.thumbnail(746, 'auto') }}" title="{{ product.title }}" data-zoom-image="{{ image.thumbnail(746, 'auto') }}">
+                                        <img src="{{ image.thumbnail(228, 228) }}" alt="{{ image.title }}" />
+                                        </a>
+                                    </li>
+                                    {% set counter = counter + 1 %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            <div class="social">
+                                <div id="sharrre">
+                                    <div class="facebook"></div>
+                                    <div class="twitter"></div>
+                                    <div class="googleplus"></div>
+                                    <div class="pinterest"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span8">
+
+                    <!-- Product content -->
+                    <div class="product-content">
+                        <div class="box">
+                            <!-- Tab panels' navigation -->
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#product" data-toggle="tab">
+                                    <i class="icon-reorder icon-large"></i>
+                                    <span class="hidden-phone">Product</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#description" data-toggle="tab">
+                                    <i class="icon-info-sign icon-large"></i>
+                                    <span class="hidden-phone">Info</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- End Tab panels' navigation -->
+
+                            <!-- Tab panels container -->
+
+                            <div class="tab-content">
+
+                                <!-- Product tab -->
+                                <div class="tab-pane active" id="product" itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer">
+                                    <div class="details">
+                                        <h1 itemprop="name">{{ product.name }}</h1>
+
+                                        {% if on_sale %}
+                                            <div class="prices on-sale">
+                                                <span class="on-sale-price">{{ product.fullPrice|currency }}</span>
+                                            </div>
+                                        {% endif %}
+                                        <div class="prices">
+                                            <span class="price" itemprop="price">{{ product.price|currency }}</span>
+                                            <meta itemprop="currency" content="USD" />
+                                        </div>
+                                        <div class="meta">
+                                            <div class="sku">
+                                                <i class="icon-pencil"></i>
+                                                <span itemprop="identifier" content="sku" rel="tooltip" title="SKU is {{ product.sku }}">{{ product.sku }}</span>
+                                            </div>
+                                            <div class="categories">
+                                                
+                                                <ul class="links">
+                                                    {% for category in product.categories %}
+                                                        <span itemprop="category"><i class="icon-tags"></i><a href="/category/{{ category.fullUrlName }}" title="{{ category.name }}">{{ category.name }}</a></span>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% if product.short_description %}
+                                        <div class="short-description">
+                                            {{ product.short_description|unescape }}
+                                        </div>
+                                    {% endif %}
+
+                                    {{ partial('shop-product-attributes') }}
+                                    {{ partial('shop-product-options') }}
+
+                                    {% if product.enabled %}
+                                        {% if not product.isOutOfStock() %}
+                                            {{ flash() }}
+                                            <div class="add-to-cart">
+                                                <input type="hidden" name="productId" value="{{ product.id }}"/>
+                                                <button class="btn btn-primary btn-large" href="#" id="add_to_cart">
+                                                <i class="icon-plus"></i> &nbsp; Add to cart</button>
+                                            </div>
+                                        {% else %}
+                                            <div class="not-available">
+                                                <p>
+                                                This product is temporarily unavailable.
+                                                {% if product.om('expected_availability_date', posted_options) %}
+                                                <br/>The expected availability date is <strong>{{ product.om('expected_availability_date', posted_options).format('%x') }}</strong>
+                                                {% endif %}
+                                                </p>
+                                            </div>
+                                        {% endif %}
+                                    {% else %}
+                                        <div class="not-available"><p>This product is not available.</p></div>
+                                    {% endif %}
+                                    
+                                </div>
+                                <!-- End id="product" -->
+
+                                <!-- Description tab -->
+                                <div class="tab-pane" id="description" itemprop="description">
+                                    {{ product.description|unescape }}
+                                </div>
+                                <!-- End id="description" -->
+                            </div>
+                            <!-- End tab panels container -->
+
+                        </div>
+
+                    </div>
+                    <!-- End class="product-content" -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End class="product-info" -->
+    <!-- Added to cart modal window -->
+    <div id="added" class="modal hide fade" tabindex="-1">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <div class="hgroup title">
+                <h3>You're one step closer to owning this product!</h3>
+                <h5>"{{ product.name }}" has been added to your cart</h5>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="pull-right">
+                <a href="/cart" class="btn btn-primary btn-small">
+                Go to cart &nbsp; <i class="icon-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End id="added" -->
+</section>
+<!-- End class="product-info" -->

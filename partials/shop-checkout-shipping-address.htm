@@ -1,0 +1,162 @@
+<!-- Checkout / Shipping Address -->
+<section class="checkout">
+    <div class="container">
+        {{ open_form({'class': 'custom', 'data-validation-message' : ''}) }}
+
+        <div class="row">
+            {{ flash() }}
+            <div class="span9">
+                <div class="box">
+
+                    <!-- Checkout progress -->
+                    {{ partial("shop-checkout-progress") }}
+                    <!-- End id="checkout-progress" -->
+
+                    <!-- Checkout content -->
+                    <div id="checkout-content">
+                        <div class="box-header">
+                            <div class="row-fluid">
+                                <div class="span8">
+                                    <h3>Shipping address</h3>
+                                    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+                                </div>
+                                <div class="span4">
+                                    <a href="#" class="btn btn-secondary btn-mini pull-right" id="copy_billing_to_shipping"
+                                    data-ajax-handler="shop:onCopyBillingToShipping"
+                                    data-ajax-extra-fields="nextStep=shipping_info, doCheckout=1, step="
+                                    data-ajax-update="#checkout-page=shop-checkout-shipping-address">
+                                    <i class="icon-copy"></i> &nbsp; Copy billing address</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-content">
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <div class="control-group">
+                                        <label for="shipping_firstName" class="control-label">First name</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ shippingInfo.firstName }}" name="shippingInfo[firstName]" id="shipping_firstName" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="shipping_lastName" class="control-label">Last name</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ shippingInfo.lastName }}" name="shippingInfo[lastName]" id="shipping_lastName" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="email" class="control-label">Email</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ shippingInfo.email }}" name="shippingInfo[email]" id="shipping_email" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="shipping_phone" class="control-label">Phone</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ shippingInfo.phone }}" name="shippingInfo[phone]" id="shipping_phone" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="control-group">
+                                        <label for="company" class="control-label">Company</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ shippingInfo.company }}" name="shippingInfo[phone]" id="company" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="shipping_address" class="control-label">Street address</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ shippingInfo.streetAddressLine1 }}" name="shippingInfo[streetAddressLine1]" id="shipping_address" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <div class="control-group">
+                                                <label for="shipping_city" class="control-label">Town / City</label>
+                                                <div class="controls">
+                                                    <input class="span12" type="text" value="{{ shippingInfo.city }}" name="shippingInfo[city]" id="shipping_city" />
+                                                    <span class="error"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="span6">
+                                            <div class="control-group">
+                                                <label for="shipping_postalCode" class="control-label">Zip / Postcode</label>
+                                                <div class="controls">
+                                                    <input class="span12" type="text" value="{{ shippingInfo.postalCode }}" name="shippingInfo[postalCode]" id="shipping_postalCode" />
+                                                    <span class="error"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <div class="control-group">
+                                                <label for="shipping_country" class="control-label">Country</label>
+                                                <div class="controls">
+                                                    <select class="span12" id="shipping_country" name="shippingInfo[countryId]" data-state-selector="#shipping_state" data-current-state="{{ shippingInfo.stateId }}" >
+                                                        {% for country in countries %}
+                                                        <option {{ option_state(shippingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                    <span class="error"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="span6">
+                                            <div class="control-group">
+                                                <label for="shipping_state" class="control-label">State</label>
+                                                <div class="controls">
+                                                    <div id="states">
+                                                        <select class="span12" id="shipping_state" name="shippingInfo[stateId]" data-ajax-refresh >
+                                                            {{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shippingInfo.stateId}) }}
+                                                        </select>
+                                                        <span class="error"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <a href="#" class="btn btn-small"
+                                data-ajax-handler="shop:checkout"
+                                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                                data-ajax-extra-fields="nextStep=billing_info">
+                                <i class="icon-chevron-left"></i> &nbsp; Billing address
+                                </a>
+                            </div>
+                            <div class="pull-right">
+                                <a class="btn btn-primary" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #breadcrumbs-area=shop-checkout-progress, #mini-cart=shop-minicart">
+                                Shipping method &nbsp; <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End id="checkout-content" -->
+
+                </div>
+            </div>
+            <div class="span3">
+                <div class="box">
+                    <!-- Order totals -->
+                    {{ partial("shop-checkout-totals") }}
+                    <!-- End id="checkout-totals" -->
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="step" value="shipping_info"/>
+        <input type="hidden" name="nextStep" value="shipping_method" />
+        </form>
+    </div>
+</section>
+<!-- End class="checkout" -->

@@ -1,0 +1,67 @@
+<div class="header">
+    <!-- Top bar -->
+    <div class="top">
+        <div class="container">
+            <div class="row">
+                <div class="span6">
+                    <p>
+                    Responsive eCommerce theme
+                    </p>
+                </div>
+                <div class="span6 hidden-phone">
+                    <ul class="inline pull-right">
+                        {% if customer %}
+                            <li><a href="{{ site_url('/orders') }}">Order history</a></li>
+                            <li><a href="{{ site_url('/change-password') }}">Change password</a></li>
+                            <li><a href="{{ site_url('/logout') }}">Logout</a></li>
+                        {% else %}
+                            <li><a href="{{ site_url('/login') }}" title="Login / Register">Login / Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End class="top" -->
+    <!-- Logo & Search bar -->
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <div class="logo">
+                        <a href="{{ site_url('/') }}" title="&larr; Back home">
+                        <img src="{{ 'images/logo.png'|theme_resource }}" alt="La Boutique" />
+                        </a>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="row-fluid">
+                        <div class="span10">
+
+                            <!-- Search -->
+                            <div class="search">
+                                <div class="qs_s">
+                                    {{ open_form({'method': 'get', 'action': site_url('search')}) }}
+                                        <input type="text" name="query" id="query" placeholder="Search store&hellip;" autocomplete="off" value="{{query|unescape}}">
+                                    {{ close_form() }}
+                                </div>
+                            </div>
+                            <!-- End class="search"-->
+
+                        </div>
+                        <div class="span2">
+
+                            <!-- Mini cart -->
+                            <div id="mini-cart" class="mini-cart">
+                                {{ partial('shop-minicart') }}
+                            </div>
+                            <!-- End class="mini-cart" -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End class="bottom" -->
+</div>

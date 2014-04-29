@@ -1,0 +1,10 @@
+{% if product.productAttributes.count %}
+      <table class="compact">
+        {% for attribute in product.productAttributes %}
+          <tr>
+            <th>{{ attribute.name }}</th>
+            <td>{{ attribute.value }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+{% endif %}

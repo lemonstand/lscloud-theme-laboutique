@@ -1,0 +1,62 @@
+<!-- Checkout / Payment Method -->
+<section class="checkout">
+    {% if cart %}
+        <div class="container">
+            <div class="row">
+                <div class="span9">
+                    <div class="box">
+    
+                        <!-- Checkout progress -->
+                        {{ partial("shop-checkout-progress") }}
+                        <!-- End id="checkout-progress" -->
+    
+                        <!-- Checkout content -->
+                        <div id="checkout-content">
+                            <div class="box-header">
+                                <h3>Payment method</h3>
+                                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+                            </div>
+    
+                            {% if order.payment_processed %}
+                            <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
+                            {% else %}
+                            <div class="box-content">
+                                <div class="payment-methods">
+                                    <div class="row-fluid">
+                                        {{ open_form({'class': 'custom'}) }}
+                                        <select name="paymentMethodId" id="payment_method" class="span6">
+                                            <option value=''> - </option>
+                                            {% for method in paymentMethods %}
+                                            <option value="{{ method.id }}">{{ method.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        </form>
+    
+                                    <div id="payment_form">
+                                        {{ partial('shop-paymentform') }}
+                                    </div>
+                                </div>
+    
+                                {% endif %}
+                            </div>
+                        </div>
+    
+                    </div>
+                    <!-- End id="checkout-content" -->
+    
+                </div>
+            </div>
+            <div class="span3">
+                <div class="box">
+                    <!-- Order totals -->
+                    {{ partial("shop-checkout-totals") }}
+                    <!-- End id="checkout-totals" -->
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <p class="flash error">Order not found.</p>
+    {% endif %}
+</section>
+<!-- End class="checkout" -->

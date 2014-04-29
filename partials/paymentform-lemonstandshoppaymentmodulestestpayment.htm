@@ -1,0 +1,57 @@
+---
+description: 'Payment form partial for Test Payment payment method'
+---
+<p>This is a test payment method. Never use your real credit card information in this form.</p>
+
+<form method="post" action="" data-ajax-handler="shop:onPay">
+    <input type="hidden" name="payment_method_id" value="{{ paymentMethod.id}}">
+    <div class="row-fluid">    
+        <div class="span6">
+                <div class="control-group">
+                    <label for="FIRSTNAME" class="control-label">Cardholder First Name</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" value="John" name="FIRSTNAME" id="FIRSTNAME" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="ACCT" class="control-label">Credit Card Number</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" value="4111111111111111" name="ACCT" id="ACCT" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="EXPDATE_YEAR" class="control-label">Expiration Date - Year</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" name="EXPDATE_YEAR" />
+                    </div>
+                </div>
+        </div>
+        <div class="span6">
+                <div class="control-group">
+                    <label for="LASTNAME" class="control-label">Cardholder Last Name</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" value="Smith" name="LASTNAME" id="LASTNAME" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="EXPDATE_MONTH" class="control-label">Expiration Date - Month</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" name="EXPDATE_MONTH"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="CVV2" class="control-label">CVV2</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" value="123" name="CVV2" id="CVV2"/>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="box-footer">
+        <div class="pull-right">
+            <button class="btn btn-primary" href="#">
+            <i class="icon-money"></i> &nbsp; Pay
+            </button>
+        </div>
+    </div>
+</form>

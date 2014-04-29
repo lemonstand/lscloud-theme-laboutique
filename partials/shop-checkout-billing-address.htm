@@ -1,0 +1,149 @@
+<!-- Checkout / Billing Address -->
+<section class="checkout">
+    <div class="container">
+        {{ open_form({'class': 'custom', 'data-validation-message' : ''}) }}
+
+        <div class="row">
+            {{ flash() }}
+            <div class="span9">
+                <div class="box">
+
+                    <!-- Checkout progress -->
+                    {{ partial("shop-checkout-progress") }}
+                    <!-- End id="checkout-progress" -->
+
+                    <!-- Checkout content -->
+                    <div id="checkout-content">
+                        <div class="box-header">
+                            <h3>Billing address</h3>
+                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+                        </div>
+                        <div class="box-content">
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <div class="control-group">
+                                        <label for="billing_firstName" class="control-label">First name</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ billingInfo.firstName }}" name="billingInfo[firstName]" id="billing_firstName" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="billing_lastName" class="control-label">Last name</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ billingInfo.lastName }}" name="billingInfo[lastName]" id="billing_lastName" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="billing_email" class="control-label">Email</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ billingInfo.email }}" name="billingInfo[email]" id="billing_email" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="billing_phone" class="control-label">Phone</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ billingInfo.phone }}" name="billingInfo[phone]" id="billing_phone" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="control-group">
+                                        <label for="company" class="control-label">Company</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ billingInfo.company }}" name="billingInfo[company]" id="company" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="billing_address" class="control-label">Street address</label>
+                                        <div class="controls">
+                                            <input class="span12" type="text" value="{{ billingInfo.streetAddressLine1 }}" name="billingInfo[streetAddressLine1]" id="billing_address" />
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <div class="control-group">
+                                                <label for="billing_city" class="control-label">Town / City</label>
+                                                <div class="controls">
+                                                    <input class="span12" type="text" value="{{ billingInfo.city }}" name="billingInfo[city]" id="billing_city" />
+                                                    <span class="error"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="span6">
+                                            <div class="control-group">
+                                                <label for="billing_postalCode" class="control-label">Zip / Postcode</label>
+                                                <div class="controls">
+                                                    <input class="span12" type="text" value="{{ billingInfo.postalCode }}" name="billingInfo[postalCode]" id="billing_postalCode" />
+                                                    <span class="error"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row-fluid">
+                                        <div class="span6">
+                                            <div class="control-group">
+                                                <label for="billing_country" class="control-label">Country</label>
+                                                <div class="controls">
+                                                    <select class="span12" id="billing_country" name="billingInfo[countryId]" data-state-selector="#billing_state" data-current-state="{{ billingInfo.stateId }}">
+                                                        {% for country in countries %}
+                                                        <option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                    <span class="error"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="span6">
+                                            <div class="control-group">
+                                                <label for="billing_state" class="control-label">State</label>
+                                                <div class="controls">
+                                                    <div id="states">
+                                                        <select class="span12" id="billing_state" name="billingInfo[stateId]" data-ajax-refresh >
+                                                            {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billingInfo.stateId}) }}
+                                                        </select>
+                                                        <span class="error"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <a href="/cart" class="btn btn-small">
+                                <i class="icon-chevron-left"></i> &nbsp; Back to cart
+                                </a>
+                            </div>
+                            <div class="pull-right">
+                                <a class="btn btn-primary" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #breadcrumbs-area=shop-checkout-progress, #mini-cart=shop-minicart">
+                                Shipping address &nbsp; <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End id="checkout-content" -->
+
+                </div>
+            </div>
+            <div class="span3">
+                <div class="box">
+                    <!-- Order totals -->
+                    {{ partial("shop-checkout-totals") }}
+                    <!-- End id="checkout-totals" -->
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="step" value="billing_info"/>
+        <input type="hidden" name="nextStep" value="shipping_info" />
+        </form>
+    </div>
+</section>
+<!-- End class="checkout" -->

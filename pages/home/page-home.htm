@@ -1,0 +1,185 @@
+---
+template: standard
+protocol: all
+published: true
+name: Home
+url: /
+---
+<!-- Home content -->
+<section class="home">
+    <!-- Slider -->
+    <section class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="{{ 'images/demo_slide_3.jpg'|theme_resource }}" alt="" />
+                <div class="caption">
+                    <div class="container">
+                        <div class="span6">
+                            <h3>360+ Retina-ready icons</h3>
+                            <br />
+                            <p>The iconic Font Awesome for Bootstrap</p>
+                            <br /> <a class="btn btn-small" title="" href="/retina-ready-icons">Find out more</a> 
+                            <a class="btn btn-primary btn-small" title="" href="#">
+                                Buy now &nbsp; <em class="icon-chevron-right"></em>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="{{ 'images/demo_slide_1.jpg'|theme_resource }}" alt="" />
+                <div class="caption">
+                    <div class="container">
+                        <div class="span6">
+                            <h3>Built-in Stripe payments</h3>
+                            <br />
+                            <p>Instant setup with payment profiles. No monthly fees.</p>
+                            <br /> <a class="btn btn-small" title="" href="#">Find out more</a> 
+                            <a class="btn btn-primary btn-small" title="" href="#">
+                                Buy now &nbsp; <em class="icon-chevron-right"></em>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="{{ 'images/demo_slide_2.jpg'|theme_resource }}" alt="" />
+                <div class="caption">
+                    <div class="container">
+                        <div class="span6 offset6 text-right">
+                            <h3>Feature-packed modules</h3>
+                            <br />
+                            <p>Isotope listing, price filtering, instand search and much more...</p>
+                            <br /> <a class="btn btn-small" title="" href="#">Find out more</a> 
+                            <a class="btn btn-primary btn-small" title="" href="#">
+                                Buy now &nbsp; <em class="icon-chevron-right"></em>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!-- End class="flexslider" -->                    
+    <!-- Promos -->
+    <section class="promos">
+        <div class="container">
+            <div class="row">
+                <div class="span4">
+                    <div class="free-shipping">
+                        <div class="box border-top">
+                            <img src="{{ 'images/free-shipping.png'|theme_resource }}" alt="" />
+                            <div class="hgroup title">
+                                <h3>Free UK shipping!</h3>
+                                <h5>This is a snappy sub-title</h5>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque beatae tempore porro officiis!</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="span4">
+                    <div class="world-shipping">
+                        <div class="box border-top">
+                            <img src="{{ 'images/world-shipping.png'|theme_resource }}" alt="" />
+                            <div class="hgroup title">
+                                <h3>We're now global!</h3>
+                                <h5>This is a snappy sub-title</h5>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque beatae tempore porro officiis!</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="span4">
+                    <div class="low-price">
+                        <div class="box border-top">
+                            <img src="{{ 'images/low-price.png'|theme_resource }}" alt="" />
+                            <div class="hgroup title">
+                                <h3>Lowest price guarantee!</h3>
+                                <h5>This is a snappy sub-title</h5>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque beatae tempore porro officiis!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End class="promos" -->
+    <!-- Featured content" -->
+    <section class="featured">
+        <div class="container">
+    
+            <div class="row">
+                <div class="span9">
+                    <!-- Products list -->
+                    {% set featuredCollection = 'featured'|collection %}
+                    {% if featuredCollection.products.count > 0 %}
+                     <ul class="product-list isotope">
+                        {% for product in featuredCollection.products %}
+                        {% set is_on_sale = product.onSale %}
+                        {% set page_url = '/product/' ~ product.url_name %}
+                        	<li class="standard" data-price="{{ product.price|currency }}">
+                            <a href="{{ page_url }}" title="{{ product.name }}">
+                            <div class="image">
+                                <img class="primary" src="{{ product.images.first.thumbnail(365, 'auto')|default('http://placehold.it/365x365') }}" alt="{{ product.images.first.title }}" />
+                                <img class="secondary" src="{{ product.images.first.thumbnail(365, 'auto')|default('http://placehold.it/365x365') }}" alt="{{ product.images.first.title }}" />
+                                {% if is_on_sale %}<span class="badge badge-sale">SALE</span>{% endif %}
+                            </div>
+                            <div class="title">
+                                <div class="prices">
+                                    {% if is_on_sale %}<del class="base">{{ product.fullPrice|currency }}</del>{% endif %}
+                                    <span class="price">{{ product.price|currency }}</span>
+                                </div>
+                                <h3>{{ product.name }}</h3>
+                            </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                     </ul>
+                    <!-- End class="product-list isotope" -->
+                    {% else %}
+                        <p class="alert">Please create a product collection with an API Code of "featured".</p>
+                    {% endif %}
+                </div>
+                <div class="span3">
+                    <!-- Categories widget -->
+                    <div class="widget Categories">
+                        <h3 class="widget-title widget-title ">Categories</h3>
+                            {% tree categories %}
+                                    <ul class="{% if tree.topLevel %} category-list secondary {% else %} category-list sub-category{% endif %}">
+                                        {% for category in tree.items %}
+                                            <li>
+                                                <a href="/category/{{ category.fullUrlName }}" title="{{ category.name }}">
+                                                {{ category.name }}
+                                                </a>
+                                            </li>
+                                            <ul>
+                                                <li>{% branch category.children %}</li>
+                                            </ul>
+                                        {% endfor %}
+                                    </ul>
+                                {% endtree %}
+                    </div>
+                    <!-- End class="widget Categories" -->
+    
+                    <!-- This month only! widget -->
+                    <div class="widget Text">
+                        <h3 class="widget-title widget-title ">This month only!</h3>
+                        <h5>Free UK shipping!</h5>
+                        <h6><i class="icon-gift"> &nbsp; </i> Free gift wrap</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque beatae tempore porro officiis!</p>
+                        <a class="btn btn-primary" href="#">
+                        BUY NOW <em>for</em> $85
+                        </a>
+                    </div>
+                    <!-- End class="widget Text" -->
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Featured content" -->
+</section>
+<!-- End class="home" -->

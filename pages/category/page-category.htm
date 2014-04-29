@@ -1,0 +1,30 @@
+---
+action: 'shop:category'
+template: standard
+protocol: all
+published: true
+name: Category
+url: '/category/:urlName@/:page?'
+---
+<section class="category">
+    <div class="container">
+        <div class="row">
+            {% if not category %}
+            <div class="span12 text-center">
+                <h2>Category not found</h2>
+                <p>We are sorry, the requested category was not found.</p>
+            </div>
+            {% else %}
+            <div class="span3">
+                {{ partial("category-sidebar") }}
+            </div>
+                {{
+                partial('shop-product-list', {
+                'products': products,
+                'empty_text': 'There are no products in this category.'
+                })
+                }}
+            {% endif %}
+        </div>
+    </div>
+</section>

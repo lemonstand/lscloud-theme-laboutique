@@ -1,0 +1,10 @@
+<ul class="breadcrumb pull-right">
+  <li><a href="{{ site_url('/') }}">Home</a></li>
+  <li><a href="{{ site_url('/shop') }}">Shop</a></li>
+  {% if category %}
+    {% for parent in category.listAllParents() %}
+      <li><a href="/category/{{ parent.fullUrlName }}">{{ parent.name }}</a></li>
+    {% endfor %}
+    <li><a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a></li>
+  {% endif %}
+</ul>

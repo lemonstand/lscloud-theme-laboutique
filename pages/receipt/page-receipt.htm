@@ -1,0 +1,73 @@
+---
+action: 'shop:receipt'
+template: standard
+protocol: all
+published: true
+name: Receipt
+url: '/receipt/:paymenthash'
+---
+<!-- Receipt -->
+<section class="checkout">
+    <div class="container">
+        {{ open_form({'class': 'custom'}) }}
+            <div class="row">
+                <div class="span9">
+                    <div class="box">
+                        
+                        <!-- Receipt content -->
+                        <div id="checkout-content">
+                            <div class="box-header">                                                                                                    
+                                <h3>Receipt</h3>
+                                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>                                                    
+                            </div> 
+                            
+                        {% if invoice %}
+                         <div class="invoice-details">
+                              <p>Please keep this information for your records.</p>
+                              <p><strong>Order number: </strong> #{{ invoice.order.number }} </p>
+                              <p><strong>Payment method: </strong> {{ payment.guessPaymentMethod().name }}</p>
+                              <p><strong>Order Date: </strong> {{ invoice.order.created_at.format('M jS, Y') }}</p>
+                        </div>
+                            
+                        <!-- InvoiceItems -->
+                                {{ partial('shop-invoiceitems') }}
+                        <!-- End Invoice Items -->
+                        
+                        {% if invoice.isPaid() %}
+                            <div class="box-footer">
+                                <div class="pull-left">                                                    
+                                    <a href="{{ site_url('/shop') }}" class="btn btn-primary">
+                                        <i class="icon-chevron-left"></i>&nbsp; Continue Shopping 
+                                    </a>
+                                </div>
+                            </div>					
+                        {% else %}
+                             <div class="box-footer">
+                                <div class="pull-left">                                                    
+                                    <a class="btn btn-primary"  href="{{ site_url('review/'~order.order_hash) }}">
+                                        Pay the order  &nbsp; <i class="icon-ok"></i>
+                                    </a>
+                                </div>
+                            </div>	
+                        {% endif %}
+                        {% else %}
+                            <p class="flash error receipt">Invoice not found.</p>
+                        {% endif %}
+                        </div>
+                        <!-- End id="checkout-content" -->
+                    </div>
+                </div>
+                {% if invoice.isPaid() %}
+                <div class="span3">                                    
+                    <div class="box">
+                        <!-- Order totals -->
+                            {{ partial("shop-invoicetotals") }}
+                        <!-- End id="checkout-totals" -->
+                    </div>                                
+                </div>
+                {% endif %}
+            </div>
+         </form>
+    </div>	
+</section>
+<!-- End class="checkout" -->

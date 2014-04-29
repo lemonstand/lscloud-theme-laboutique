@@ -1,0 +1,7 @@
+<ul class="breadcrumb pull-right">
+  <li><a href="{{ site_url('/') }}">Home</a></li>
+  <li><a href="{{ site_url('/orders') }}">Orders</a></li>
+  {% if order %}
+    <li class="active"><a href="{{ '/order/' ~ order.id }}">Order #{{ order.id }}</a></li>
+  {% endif %}
+</ul>

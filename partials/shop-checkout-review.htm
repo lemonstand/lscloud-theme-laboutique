@@ -1,0 +1,58 @@
+<!-- Checkout / Review-->
+<section class="checkout">
+    <div class="container">
+        {{ open_form({'class': 'custom'}) }}
+
+        <div class="row">
+            <div class="span9">
+                <div class="box">
+
+                    <!-- Checkout progress -->
+                    {{ partial("shop-checkout-progress") }}
+                    <!-- End id="checkout-progress" -->
+
+                    <!-- Checkout content -->
+                    <div id="checkout-content">
+                        <div class="box-header">
+                            <h3>Order review</h3>
+                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+                        </div>
+
+
+                        <!-- Cart Items -->
+                        {{ partial('shop-cart-items', {'edit_cart': false}) }}
+                        <!-- End Cart Items -->
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <a href="#"
+                                data-ajax-handler="shop:checkout"
+                                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                                data-ajax-extra-fields="nextStep=shipping_method" class="btn btn-small">
+                                <i class="icon-chevron-left"></i> &nbsp; Shipping method
+                                </a>
+                            </div>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-primary">
+                                Create order and pay &nbsp; <i class="icon-ok"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End id="checkout-content" -->
+
+                </div>
+            </div>
+            <div class="span3">
+                <div class="box">
+                    <!-- Order totals -->
+                    {{ partial("shop-checkout-totals") }}
+                    <!-- End id="checkout-totals" -->
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="step" value="review" />
+        <input type="hidden" name="nextStep" value="pay" />
+        </form>
+    </div>
+</section>
+<!-- End class="checkout" -->

@@ -1,0 +1,55 @@
+---
+description: 'Payment form partial for Stripe Payments payment method'
+---
+<form method="post" action="" data-ajax-handler="shop:onPay">
+    <input type="hidden" value="{{ paymentMethod.id}}" name="payment_method_id">
+    <div class="row-fluid">    
+        <div class="span6">
+                <div class="control-group">
+                    <label for="FIRSTNAME" class="control-label">Cardholder First Name</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" name="firstName" id="firstName" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="ACCT" class="control-label">Credit Card Number</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" value="" name="cardNumber" id="cardNumber" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="EXPDATE_YEAR" class="control-label">Expiration Date - Year</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" name="expiryYear"/>
+                    </div>
+                </div>
+        </div>
+        <div class="span6">
+                <div class="control-group">
+                    <label for="LASTNAME" class="control-label">Cardholder Last name</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" name="lastName" id="LASTNAME" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="EXPDATE_MONTH" class="control-label">Expiration Date - Month</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" name="expiryMonth" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="CVV2" class="control-label">CVV2</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" value="" name="securityCode" id="securityCode"/>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="box-footer">
+        <div class="pull-right">
+            <button class="btn btn-primary" href="#">
+            <i class="icon-money"></i> &nbsp; Pay
+            </button>
+        </div>
+    </div>
+</form>

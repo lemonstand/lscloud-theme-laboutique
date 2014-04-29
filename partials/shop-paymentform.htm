@@ -1,0 +1,21 @@
+{% if paymentMethod is defined %}
+    {% set name = paymentMethod.getFrontendPartialName() %}
+    {{ partial(name, {paymentMethod: paymentMethod, payment: payment}) }}
+{% else %}
+  {% set message = payment_method.pay_offline_message() %}
+  {% if message %}
+    <p>{{ message }}</p>
+  {% else %}
+    <p>This payment method has no payment form.</p>
+    <div class="box-footer">
+        <div class="pull-left">
+            <a class="btn btn-small" href="#"
+            data-ajax-handler="shop:checkout"
+            data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+            data-ajax-extra-fields="nextStep=review">
+            <i class="icon-chevron-left"></i> &nbsp; Order Review
+            </a>
+        </div>
+    </div>
+  {% endif %}
+{% endif %}

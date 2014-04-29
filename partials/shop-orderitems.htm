@@ -1,0 +1,55 @@
+<table class="styled-table order">
+	<thead>
+		<tr>
+			<th class="col_product text-left">Product</th>
+			<th class="col_qty text-right">Qty</th>
+			<th class="col_single text-right">Single</th>
+			<th class="col_discount text-right">Discount</th>
+			<th class="col_total text-right">Total</th>
+		</tr>
+	</thead>
+		
+	<tbody>
+			{% for invoice in order.invoices %}
+                {% for shipment in invoice.shipments %}
+                    {% for item in shipment.shipmentItems %}
+						<tr>
+							<td class="col_product">
+								<div class="image">
+									<a href="/product/{{ item.product.url_name }}">
+										<img src="{{ item.product.images.first.thumbnail(80, 80)|default('http://placehold.it/80x80') }}">
+									</a>
+								</div>
+										
+								<h5>
+									<a href="/product/{{ item.product.url_name }}">
+										{{ item.product.name }}
+									</a>
+								</h5>
+								
+								{% set description = item.optionsString() %}
+								{% if description %}
+									<ul class="options">
+											<li>{{ description|unescape }}</li>
+									</ul>
+								{% endif %}
+
+							</td>
+							<td class="col_qty text-right">
+								<span class="quantity">{{ item.quantity|number_format(0) }}</span>
+							</td>
+							<td class="col_single text-right">
+								<span class="price">{{ item.pivot.price|currency }}</span>
+							</td>
+							<td class="col_discount text-right">
+								<span class="discount">{{ 0|currency }}</span>
+							</td>
+							<td class="col_total text-right">
+								<span class="total">{{ (item.quantity *item.pivot.price)|currency }}</span>
+							</td>
+						</tr>
+			        {% endfor %}
+                {% endfor %}
+            {% endfor %}
+	</tbody>
+</table>

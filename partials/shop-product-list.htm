@@ -1,0 +1,42 @@
+{{ open_form() }}
+{% paginate products by 9 %}
+
+<div class="span9">
+    <!-- Products list -->
+    <ul class="product-list isotope">
+     {% for product in pagination.items %}
+      {% set is_on_sale = product.onSale %}
+      {% set page_url = '/product/' ~ product.url_name %}
+      
+        <li class="standard" data-price="{{ product.price}}">
+            <a href="{{ page_url }}" title="{{ product.images.first.title }}">
+            <div class="image">
+                <img class="primary" src="{{ product.images.first.thumbnail(365, 'auto')|default('http://placehold.it/365x365') }}" alt="{{ product.images.first.description }}" />
+                <img class="secondary" src="{{ product.images.first.thumbnail(365, 'auto')|default('http://placehold.it/365x365') }}" alt="{{ product.images.first.description }}" />
+                {% if is_on_sale %}<span class="badge badge-sale">SALE</span>{% endif %}
+            </div>
+            <div class="title">
+                <div class="prices">
+                    {% if is_on_sale %}<del class="base">{{ product.fullPrice|currency }}</del>{% endif %}
+                    <span class="price">{{ product.price|currency }}</span>
+                </div>
+                <h3>{{ product.name }}</h3>
+            </div>
+            </a>
+        </li>
+
+        {% else %}
+      {% if empty_text %}<li class="empty">{{ empty_text }}</li>{% endif %}
+    {% endfor %}
+    </ul>
+    <!-- End class="product-list isotope" -->
+    
+    <div class="pagination-centered">
+        <div class="pagination">
+          {% navigation %}
+        </div>
+    </div>
+
+  {% endpaginate %}
+{{ close_form() }}
+</div>

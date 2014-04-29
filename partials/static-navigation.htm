@@ -1,0 +1,11 @@
+{% set active_page = globals.active_page %}
+<ul class="nav nav-tabs nav-stacked">
+    <li class="{{ active_page == 'about-us' ? 'active' : null }}"><a href="{{ site_url('/about-us') }}" title="About us" class="title">About us</a></li>
+    <li class="{{ active_page == 'typography' ? 'active' : null }}"><a href="{{ site_url('/typography') }}" title="Typography" class="title">Typography</a></li>
+    <li class="{{ active_page == 'retina-ready-icons' ? 'active' : null }}"><a href="{{ site_url('/retina-ready-icons') }}" title="Retina-ready icons" class="title">Retina-ready icons</a></li>
+    <li class="{{ active_page == 'buttons' ? 'active' : null }}"><a href="{{ site_url('/buttons') }}" title="Buttons" class="title">Buttons</a></li>
+    <li class="{{ active_page == 'elements' ? 'active' : null }}"><a href="{{ site_url('/elements') }}" title="Elements" class="title">Elements</a></li>
+    <li class="{{ active_page == 'grids' ? 'active' : null }}"><a href="{{ site_url('/grids') }}" title="Grids" class="title">Grids</a></li>
+    <li class="{{ active_page == 'store-locator' ? 'active' : null }}"><a href="{{ site_url('/store-locator') }}" title="Store locator" class="title">Store locator</a></li>
+    <li class="{{ active_page == 'contact-us' ? 'active' : null }}"><a href="{{ site_url('/contact-us') }}" title="Contact us" class="title">Contact us</a></li>															
+</ul>

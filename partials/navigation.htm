@@ -1,0 +1,36 @@
+<nav class="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <a href="#" class="main-menu-button">Navigation</a>
+                <!-- Begin Menu Container -->
+                <div class="megamenu_container">
+                    <div class="menu-main-navigation-container">
+                        <ul id="menu-main-navigation" class="main-menu">
+                            <li class="{{ active_page == 'home' ? 'active' : null }} menu-item-home menu-item-has-children megamenu-parent"><a href="{{ site_url('/') }}">Home</a></li>
+                            <li class="menu-item-has-children"><a href="{{ site_url('shop') }}">Shop</a>
+                                {% if categories.count %}
+                                {% tree categories %}
+                                <ul class="sub-menu">
+                                    {% for category in tree.items %}
+                                    <li>
+                                        <a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a>
+                                        {% branch category.children %}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endtree %}
+                                {% endif %}
+                            </li>
+                            <li class="{{ active_page == 'about-us' ? 'active' : null }}"><a href="{{ site_url('about-us') }}">About</a></li>
+                            <li class="{{ active_page == 'contact-us' ? 'active' : null }}"><a href="{{ site_url('contact-us') }}">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="span4 visible-desktop">
+                {{ code_block('breadcrumbs') }}
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,271 @@
+/**
+* ----------------------------------------------------------------------
+* Mega Menu Styling Rules
+*/
+
+/*@media only screen and (min-width: 768px) {*/
+
+	.megamenu-parent *,
+	.megamenu-parent *:before,
+	.megamenu-parent *:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	.megamenu-parent[data-width='full'],
+	.megamenu-parent.mm-width-full {
+		/*position: static!important;*/
+		/*  we need this property to make sure megamenu width:100% go to the edge */
+	}
+
+	.megamenu-parent > .megamenu-sub-menu {
+		display: block;
+		visibility: hidden;
+		position: absolute;
+	}
+
+	.megamenu-parent:hover > .megamenu-sub-menu {
+		left: 0;
+		right: auto;
+		visibility: visible;
+	}
+
+		/* Triangle for megamenu parent*/
+
+		.megamenu-parent:hover:after {
+			position: absolute;
+			/*border-color: transparent transparent transparent;
+			border-style: inset inset solid;
+			border-width: 6px;*/
+			content: "";
+			display: block;
+			height: 0;
+			width: 0;
+			/*margin-left: 40px;
+			margin-top: -11px;*/
+		}
+
+		/* Menu list inside megamenu dropdown */
+		.megamenu-parent > .megamenu-sub-menu .megamenu-inner-sub-menu > li {
+			width: 100%;
+			float: left;
+			clear: both;
+		}
+
+		/*.megamenu-parent > .megamenu-sub-menu > .megamenu-sub-menu,*/
+		.megamenu-inner-sub-menu .megamenu-inner-sub-menu > li li {
+			padding-left: 10px;
+		}
+
+		.megamenu-parent > .megamenu-sub-menu .megamenu-inner-sub-menu > li > a {
+			width: 100%;
+			display: block;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.megamenu-parent > .megamenu-sub-menu .megamenu-column {
+			float: left;
+			width: 100%;
+		}
+
+		.megamenu-parent.megamenu-columns-2 > .megamenu-sub-menu > .megamenu-column {
+			width: 50%;
+		}
+
+		.megamenu-parent.megamenu-columns-3 > .megamenu-sub-menu > .megamenu-column {
+			width: 33.2%;
+		}
+
+		.megamenu-parent.megamenu-columns-4 > .megamenu-sub-menu > .megamenu-column {
+			width: 25%;
+		}
+
+		.megamenu-parent.megamenu-columns-5 > .megamenu-sub-menu > .megamenu-column {
+			width: 20%;
+		}
+
+		.megamenu-parent.megamenu-columns-6 > .megamenu-sub-menu > .megamenu-column {
+			width: 16.66%;
+		}
+
+		.megamenu-parent.megamenu-columns-7 > .megamenu-sub-menu > .megamenu-column {
+			width: 14.2%;
+		}
+
+		.megamenu-parent.megamenu-columns-8 > .megamenu-sub-menu > .megamenu-column {
+			width: 12.5%;
+		}
+
+		.megamenu-parent .megamenu-column > a,
+		.megamenu-parent .megamenu-column a.parent-link {
+			display: none!important;
+		}
+
+		/* Standard columns and content elements padding */
+
+		/*.megamenu-parent .megamenu-column,*/
+		/*.megamenu-parent > .megamenu-sub-menu > .megamenu-content {
+			padding: 20px;
+		}*/
+
+		/* In some situations we need to break this padding */
+		.megamenu-parent .megamenu-column.no-padding,
+		.megamenu-parent > .megamenu-sub-menu > .megamenu-content.no-padding {
+			padding: 0;
+		}
+
+			.megamenu-parent > .megamenu-sub-menu .megamenu-column:hover {
+				background: transparent;
+			}
+			.megamenu-parent > .megamenu-sub-menu .megamenu-column > a {
+				display: none;
+			}
+			.megamenu-parent > .megamenu-sub-menu .megamenu-column .megamenu-inner-sub-menu {
+				/*visibility: visible;*/
+				left: auto;
+				position: relative;
+				display: block;
+			}
+
+			.megamenu-parent:hover > .megamenu-sub-menu .megamenu-column .megamenu-inner-sub-menu {
+				visibility: visible;
+			}
+			.megamenu-parent > .megamenu-sub-menu .megamenu-inner-sub-menu li:not(.megamenu-content) > a {
+				/*padding: 3px 0;*/
+			}
+
+			.megamenu-parent > .megamenu-sub-menu .megamenu-inner-sub-menu li:not(.megamenu-content):not(.megamenu-heading) > a {
+				/*padding-left: 13px;*/
+			}
+
+	.megamenu-parent > .megamenu-sub-menu .megamenu-inner-sub-menu li:hover > a {
+		background: none;
+	}
+		.megamenu-parent .megamenu-heading > a:after {
+			display: none;
+		}
+		.megamenu-parent .megamenu-heading:hover,
+		.megamenu-parent .megamenu-heading > a:hover,
+		.megamenu-parent .megamenu-content:hover,
+		.megamenu-parent .megamenu-content > a:hover {
+			background: none;
+		}
+
+	/* Content Mega-Menu Element Styling */
+	.megamenu-parent .megamenu-content {
+		width: 100%;
+	}
+
+
+	/* Icons right margin */
+	 .megamenu-content [class*="mm-icon-"] {
+		margin-right: 6px;
+	}
+
+	/* Rotating tweets shortcode */
+
+	.megamenu-content .rtw_main {
+		/*font-size: 16px;
+		font-weight: 300;*/
+	}
+
+	.megamenu-content a {
+		line-height: 1.6!important;
+	}
+
+
+
+	/* Form items in mega-menu styling */
+
+	.megamenu-parent:not(.no-styling) input[type="text"],
+	.megamenu-parent:not(.no-styling) input[type="password"],
+	.megamenu-parent:not(.no-styling) input[type="date"],
+	.megamenu-parent:not(.no-styling) input[type="datetime"],
+	.megamenu-parent:not(.no-styling) input[type="email"],
+	.megamenu-parent:not(.no-styling) input[type="number"],
+	.megamenu-parent:not(.no-styling) input[type="search"],
+	.megamenu-parent:not(.no-styling) input[type="tel"],
+	.megamenu-parent:not(.no-styling) input[type="time"],
+	.megamenu-parent:not(.no-styling) input[type="url"] {
+
+	}
+
+	.megamenu-parent:not(.no-styling) textarea {
+		/*padding: 6px;
+		border-radius: 4px;*/
+	}
+
+	.megamenu-parent:not(.no-styling) input[type="submit"] {
+		/*border: medium none;
+		border-radius: 3px 3px 3px 3px;
+		height: 40px;
+		line-height: 40px;
+		padding: 8px 16px;*/
+	}
+
+	/**
+	* ----------------------------------------------------------------------
+	* Default styling skin ( Black Drop Downs )
+	* to disable any styling use '.no-styling' class for parent mega-menu item
+	*/
+	.megamenu-parent:not(.no-styling) > .megamenu-sub-menu,
+	.megamenu-parent:not(.no-styling) > .megamenu-sub-menu .megamenu-inner-sub-menu {
+		/* Disable some styling for dropdowns */
+		/*background: #2A2C2C;
+		color: #ADADAD;*/
+	}
+
+	/* Triangle color for megamenu parent*/
+
+	.megamenu-parent:hover:after {
+		/*border-color: transparent transparent #2A2C2C;*/
+	}
+
+	.megamenu-parent:not(.no-styling) > .megamenu-sub-menu .megamenu-inner-sub-menu:after {
+		content: '';
+		display: table;
+		clear:both;
+	}
+
+
+	.megamenu-parent:not(.no-styling) > .megamenu-sub-menu li:not(.megamenu-content):not(.megamenu-heading) > a,
+	.megamenu-parent:not(.no-styling) > .megamenu-sub-menu li:not(.megamenu-content):not(.megamenu-heading) {
+		/*font-size: 13px;*/
+		line-height: 1.6;
+	}
+
+	.megamenu-parent:not(.no-styling) .megamenu-content a {
+		padding: 0;
+	}
+
+	.megamenu-parent:not(.no-styling) .megamenu-content p:last-child {
+		margin-bottom: 0;
+	}
+
+	.megamenu-parent:not(.no-styling) > .megamenu-sub-menu a {
+		/*color: #E3E3E3!important;*/
+	}
+
+	.megamenu-parent:not(.no-styling) > .megamenu-sub-menu a:hover {
+		/*color: #FFF!important;*/
+	}
+
+	.megamenu-parent:not(.no-styling) > .megamenu-sub-menu li:not(.megamenu-heading):hover > a {
+		/*color: #FFF;*/
+	}
+
+
+	 .megamenu-parent:not(.no-styling) > .megamenu-sub-menu .has-dropdown > a:after {
+		display: none;
+	 }
+
+	.megamenu-parent:not(.no-styling) .first-submenu-header > a {
+		margin-top: 0;
+	}
+
+
+	.megamenu-content .map-canvas:last-child {
+		margin-bottom: 0;
+	}

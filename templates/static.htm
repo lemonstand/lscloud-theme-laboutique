@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js">
+    <head>        
+        {{ partial("layout-head") }}
+    </head>
+    <body>
+        <div class="wrapper">
+        <!-- Header -->
+            {{ partial("layout-header") }}
+        <!-- End Header -->
+        
+        <!-- Navigation -->
+            {{ partial("navigation") }}
+        <!-- End class="navigation" -->
+
+        <!-- Content section -->		
+            <section class="main">
+                <!-- Static page -->
+                <section class="static_page_1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+                                <section class="static-page">
+                                
+                                    <div class="row-fluid">
+                                        
+                                        <div class="span3">
+                                            <!-- Static page navigation -->
+                                                {{ partial("static-navigation") }}
+                                            <!-- End static page navigation -->                                        
+                                        </div>
+
+                                        <div class="span9">
+                                            <div class="content">
+                                                {{ page() }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>    
+                <!-- End Static page -->
+            </section>
+        <!-- End class="main" -->
+ 
+        <!-- Footer -->
+            {{ partial("layout-footer") }}
+        <!-- End id="footer" -->            
+            
+        <!-- Credits bar -->
+            {{ partial("credits-bar") }}
+        <!-- End class="credits" -->            
+        </div>
+    </body>
+</html>

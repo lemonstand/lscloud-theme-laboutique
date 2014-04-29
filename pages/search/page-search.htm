@@ -1,0 +1,23 @@
+---
+action: 'shop:search'
+template: standard
+protocol: all
+published: true
+name: Search
+url: '/search/:page?'
+---
+<!-- search results -->
+<section class="category">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h3>Products found: {{ products.get().count() }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            {{ partial('search-product-list', {
+              'products': products}) }}
+        </div>
+    </div>
+</section>
+<!-- End search results -->

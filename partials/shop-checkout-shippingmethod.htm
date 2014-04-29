@@ -1,0 +1,98 @@
+<!-- Checkout / Shipping Method -->
+<section class="checkout">
+    <div class="container">
+        {{ open_form({'class': 'custom'}) }}
+
+        <div class="row">
+            <div class="span9">
+                <div class="box">
+
+                    <!-- Checkout progress -->
+                    {{ partial("shop-checkout-progress") }}
+                    <!-- End id="checkout-progress" -->
+
+                    <!-- Checkout content -->
+                    <div id="checkout-content">
+                        <div class="box-header">
+                            <h3>Shipping method</h3>
+                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+                        </div>
+
+                        <div class="box-content">
+                            <div class="shipping-methods">
+                                <div class="row-fluid">
+
+                                    {% if shippingOptions %}
+                                    {% for index, option in shippingOptions %}
+
+                                    <div class="span4">
+                                        <div class="box highlight">
+                                            <div class="hgroup title">
+                                                <h3>{{ option.shippingMethodName }}</h3>
+                                                <h5>{% if option.shippingServiceName %}: {{ option.shippingServiceName }}{% endif %}</h5>
+                                                {% if option.error_hint %}
+                                                <span class="choice-description error-hint">{{ option.error_hint }}</span>
+                                                {% endif %}
+                                            </div>
+                                            
+                                                <div class="box-content highlight" id="shipping-methods">
+                                                {% if not option.error_hint %}
+                                                    <div class="price">
+                                                        <strong>{{ not option.is_free ? option.quote|currency : 'Free!' }}</strong>
+                                                    </div>
+                                                    <input type="radio" value="{{ index }}"
+                                                    {{ option.error_hint ? 'disabled' : null }}
+                                                    {{ radio_state(option.shippingMethodId, shippingMethod) }}
+                                                    name="shippingMethod" id="{{ 'option'~index }}">
+                                                {% endif %}
+                                                </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% else %}
+                                    <p>We are sorry, there are no shipping options available for your location.</p>
+                                    {% endif %}
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <a href="shipping.html" class="btn btn-small"
+                                data-ajax-handler="shop:checkout"
+                                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                                data-ajax-extra-fields="nextStep=shipping_info">
+                                <i class="icon-chevron-left"></i> &nbsp; Shipping address
+                                </a>
+                            </div>
+
+                            {% if shippingOptions %}
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-primary" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #mini-cart=shop-minicart">
+                                Order Review &nbsp; <i class="icon-chevron-right"></i>
+                                </button>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    <!-- End id="checkout-content" -->
+
+                </div>
+            </div>
+            <div class="span3">
+                <div class="box">
+                    <!-- Order totals -->
+                    {{ partial("shop-checkout-totals") }}
+                    <!-- End id="checkout-totals" -->
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="step" value="shipping_method" />
+        <input type="hidden" name="nextStep" value="review" />
+        {{ close_form }}
+    </div>
+</section>
+<!-- End class="checkout" -->

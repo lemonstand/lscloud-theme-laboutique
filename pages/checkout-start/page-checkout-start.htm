@@ -1,0 +1,165 @@
+---
+action: 'shop:login'
+template: standard
+protocol: all
+published: true
+name: Checkout
+url: /checkout-start
+---
+<!-- Checkout Start -->
+<section class="checkout_start">
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+                <!-- Login --> 
+                <div class="login">
+                    <div class="box">
+                        {{ open_form({'data-ajax-handler': 'shop:onLogin'}) }}
+                        <div class="hgroup title">
+                            <h3>Customer login</h3>
+                            <h5>Please login using your existing account</h5>
+                        </div>
+                        <div class="box-content">
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <div class="control-group">
+                                        <label class="control-label" for="login_email">Email</label>
+                                        <div class="controls">
+                                            <input class="span12" id="login_email" type="text" name="email" value="{{ post('email') }}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="control-group">
+                                        <label class="control-label" for="login_password">Password</label>
+                                        <div class="controls">
+                                            <input class="span12" id="login_password" type="password" name="password" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <div class="pull-left">
+                                <button type="submit" class="btn btn-primary btn-small" name="login" value="Login">
+                                Login
+                                </button>
+                                <a href="{{ site_url('/password-restore') }}" class="btn btn-small">
+                                Reset my password
+                                </a>
+                            </div>
+                        </div>
+                        <input type="hidden" name="redirect" value="{{ site_url('/checkout') }}"/>
+                        {{ close_form() }}
+                    </div>
+                </div>
+                <!-- End class="login" -->
+            </div>
+            <div class="span6">
+                <!-- Register -->
+                <div class="register">
+                    <div class="box">
+                        <div class="hgroup title">
+                            <h3>Want to Register?</h3>
+                            <h5>Registration allows you to avoid filling in billing and shipping forms every time you checkout on this website. You'll also be able to track your orders with ease!</h5>
+                        </div>
+                        <div class="buttons">
+                            <div class="pull-left">
+                                <a href="#register" class="btn btn-small" data-toggle="modal">
+                                Register now &nbsp; <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End class="register" -->
+                <!-- Checkout as Guest -->
+                <div class="guest">
+                    <div class="box">
+                        <div class="hgroup title">
+                            <h3>Checkout as Guest</h3>
+                            <h5>Don't have an account and you don't want to register? Checkout as a guest instead!</h5>
+                        </div>
+                        <div class="buttons">
+                            <div class="pull-left">
+                                <a class="btn btn-small" href="{{ site_url('checkout') }}">
+                                Checkout as guest &nbsp; <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End class="guest" -->
+            </div>
+        </div>
+    </div>
+    <!-- Register modal window -->
+    <div id="register" class="modal hide fade" tabindex="-1">
+        {{ open_form({'data-ajax-handler': 'shop:onSignup', 'data-validation-message' : ''}) }}
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <div class="hgroup title">
+                <h3>Register now</h3>
+                <h5>Registered users get access to features such as order history and so much more!</h5>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="signup[first_name]">First name</label>
+                        <div class="controls">
+                            <input class="span12" type="text" id="signup[first_name]" name="signup[first_name]" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="signup[last_name]">Last name</label>
+                        <div class="controls">
+                            <input class="span12" type="text" id="signup[last_name]" name="signup[last_name]" value="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="control-group">
+                        <label class="control-label" for="signup[email]">Email address</label>
+                        <div class="controls">
+                            <input class="span12" type="text" id="signup[email]" name="signup[email]" value="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="signup[password]">Password</label>
+                        <div class="controls">
+                            <input class="span12" type="password" id="signup[password]"  name="signup[password]" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="signup[password_confirmation]">Password confirm</label>
+                        <div class="controls">
+                            <input class="span12" type="password" id="signup[password_confirmation]"  name="signup[password_confirmation]" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="autologin" value="1" />
+        <input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-small" name="signup" value="Register">
+            Register now &nbsp; <i class="icon-ok"></i>
+            </button>
+        </div>
+        {{ close_form() }}
+    </div>
+    <!-- End Register modal window -->
+</section>
+<!-- End class="checkout_start" -->

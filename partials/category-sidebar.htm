@@ -1,0 +1,56 @@
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="children">
+
+            {% if category.parent.children %}
+            <div class="box border-top">
+                    <div class="hgroup title">
+                        <h3>
+                        <a href="/category/{{ category.parent.url_name }}" title="{{ category.parent.name }}">{{ category.parent.name }}</a>
+                        </h3>
+                    </div>
+                    <ul class="category-list secondary ">
+                        {% tree category.parent.children %}
+                            {% for categories in tree.items %}
+                                <li class="{% if categories.id == category.id %} current {% else %} {% endif %}">
+                                    <a href="/category/{{ categories.parent.url_name }}/{{ categories.url_name }}">{{ categories.name }}
+                                    <span class="count">{{ categories.products.count }}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endtree %}
+            {% else %}
+                <div class="box border-top">
+                    <div class="hgroup title">
+                        <h3>
+                        <a href="/category/{{ category.parent.url_name }}{{ category.url_name }}" title="{{ category.name }}">{{ category.name }}</a>
+                        </h3>
+                    </div>
+                    <ul class="category-list secondary ">
+                        {% tree category.children %}
+                            {% for category in tree.items %}
+                                <li>
+                                    <a href="/category/{{ category.parent.url_name }}/{{ category.url_name }}">{{ category.name }}
+                                    <span class="count">{{ category.products.count }}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endtree %}
+            {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <!-- Price filter -->
+            <div class="price-filter">
+                <div class="box border-top">
+                    <div class="hgroup title">
+                        <h3>Refine products</h3>
+                        <h5>Filter your products by price</h5>
+                    </div>
+                    <div id="slider" data-max="200" data-step="5" data-currency="&#x24;"></div>
+                    <span id="slider-label">Price range: <strong>$0 &ndash; $200</strong></span>
+                </div>
+            </div>
+    <!-- End class="price-filter" -->
+</aside>
+<!-- End sidebar -->

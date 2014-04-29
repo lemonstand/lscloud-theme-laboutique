@@ -1,0 +1,30 @@
+---
+template: standard
+protocol: all
+published: true
+name: Registered
+url: /registered
+---
+<div class="container">
+    <div class="row">
+        <div class="span6">
+            <div class="register">
+                <div class="box">
+                    <div class="hgroup title">
+                        <h3>Thank you for registering!</h3>
+                        <h5>A confirmation email has been sent to your email address.</h5>
+                    </div>
+                
+                    <div class="buttons">
+                        {% if customer %}
+                            <p>You have been automatically logged in.</p>
+                        {% else %}
+                            <p>Please <a href="{{ root_url('/login') }}">sign in</a> using your email and password.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- End class="register" -->
+        </div>
+    </div>
+</div>

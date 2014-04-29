@@ -1,0 +1,23 @@
+---
+action: 'shop:product'
+template: standard
+protocol: all
+published: true
+name: Product
+url: '/product/:urlName'
+---
+{{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
+      {% if product %}
+        <div id="product-page">
+          {{ partial('shop-product') }}
+        </div>
+      {% else %}
+          <div class="container">
+            <div class="row">
+                <div class="span12 text-center">
+                  <h2>We are sorry, the requested product was not found.</h2>
+                </div>
+            </div>
+          </div>
+      {% endif %}
+{{ close_form() }}

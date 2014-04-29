@@ -1,0 +1,14 @@
+<div id="checkout-totals">
+        <div class="hgroup title">
+            <h3>Order total</h3>
+            <h5>Shipping costs and taxes will be calculated during checkout</h5>
+        </div>
+        <ul class="price-list">
+            <li>Subtotal: <strong>{{ cart.getSubtotal()|currency }}</strong></li>
+            {% if totals.totalShippingQuote %}
+            <li>Shipping: <strong>{{ totals.totalShippingQuote|currency }}</strong></li>
+            {% endif %}
+            <li>Tax: <strong>{{ totals.totalTax|currency }}</strong></li>
+            <li class="important">Total: <strong>{{ totals.total|currency }}</strong></li>
+        </ul>
+</div>

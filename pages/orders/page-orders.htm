@@ -1,0 +1,93 @@
+---
+action: 'shop:orders'
+template: standard
+protocol: all
+published: true
+name: Orders
+url: /orders
+---
+<div class="container">
+	<div class="row">
+		
+		<div class="span8">
+			<div class="box">
+				<div class="box-header">
+					<h3>Order history</h3>
+					<h5>Check your order status, pay for your unpaid orders and more!</h5>
+				</div>
+				
+				<div class="box-body">
+					{% if not orders or not orders.count %}
+						<div class="alert">
+							<strong>Hold up!</strong> You still haven't made any orders!
+					    </div>
+					{% else %}
+						<table class="styled-table orders">
+							<thead>
+								<tr>
+									<th class="col_id">Order no.</th>
+									<th class="col_date">Order date</th>
+									<th class="col_count">No. of items</th>
+									<th class="col_total">Order total</th> 
+									<th class="col_status">Status</th> 
+									<th class="col_view hide-for-small">&nbsp;</th> 
+								</tr>
+							</thead>
+				
+							<tbody>
+								{% for order in orders %}
+								    {% set url = root_url('/order/'~order.id) %}
+									<tr>
+										<td class="col_id">#{{ order.id }}</td>
+										<td class="col_date">{{ order.created_at.format('M jS, Y') }}</td>
+
+										<td class="col_count">{{ order.getitemquantity }}<span class="hide-for-small"> item(s)</span></td>
+										<td class="col_total">{{ order.total|currency }}</td>
+										<td class="col_status"><span class="label" style="background-color:{{ order.orderStatus.color }};">{{ order.orderStatus.name }}</span></td>
+										<td class="col_view text-right">
+											<a href="{{ url }}" class="btn btn-mini">
+												View &nbsp; <i class="icon-chevron-right"></i>
+											</a>
+										</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		
+		<div class="span4">
+			<div class="box">
+				<div class="box-header">
+					<h3>Order stats</h3>
+					<h5>A few statistics about you</h5>
+				</div>
+				
+				<div class="box-body">
+				<ul class="price-list">					
+						
+						<li>Customer since: <strong>{{ customer.created_at }}</strong></li>
+						
+						<li>Total orders: <strong>{{ customer.orders|length }}</strong></li>
+						
+						{% set total_items = 0 %}
+						    {% for order in orders %}
+						        {% set total_items = total_items + order.getitemquantity %}
+						    {% endfor %}
+						
+						<li>Total items: <strong>{{ total_items }}</strong></li>
+						
+						{% set total_spend = 0 %}
+						    {% for order in orders %}
+						        {% set total_spend = total_spend + order.total %}
+						    {% endfor %}
+						<li class="important">Total spend: <strong>{{ total_spend }}</strong></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>	
+</div>

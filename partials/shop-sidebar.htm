@@ -1,0 +1,39 @@
+<!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="children">
+            <div class="box border-top">
+                <div class="hgroup title">
+                    <h3>
+                    <a href="category.html" title="categories">Categories</a>
+                    </h3>
+                </div>
+                
+                {% tree categories %}
+                <ul class="{% if tree.topLevel %} category-list secondary {% else %} category-list sub-category{% endif %}">
+                {% for category in tree.items %}
+                    <li>
+                        <a href="/category/{{ category.fullUrlName }}" title="{{ category.name }}">
+                        <span class="count">{{ category.products.count }}</span>
+                        {{ category.name }}
+                        </a>
+                        {% branch category.children %}
+                    </li>
+                {% endfor %}
+                </ul>
+                {% endtree %}
+            </div>
+        </div>
+        <!-- Price filter -->
+        <div class="price-filter">
+            <div class="box border-top">
+                <div class="hgroup title">
+                    <h3>Refine products</h3>
+                    <h5>Filter your products by price</h5>
+                </div>
+                <div id="slider" data-max="200" data-step="5" data-currency="&#x24;"> </div>
+                <span id="slider-label">Price range: <strong>$0 &ndash; $200</strong></span>
+            </div>
+        </div>
+        <!-- End class="price-filter" -->
+    </aside>
+<!-- End sidebar -->

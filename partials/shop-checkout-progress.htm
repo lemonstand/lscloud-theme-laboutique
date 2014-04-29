@@ -1,0 +1,217 @@
+{% if step == 'billing_info' %}
+
+<div id="checkout-progress">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#">
+                <i class="icon-map-marker icon-large"></i>
+                <span>Billing address</span>
+            </a>
+        </li>
+        <li>
+            <div>
+                <i class="icon-envelope icon-large"></i>
+                <span>Shipping address</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <i class="icon-truck icon-large"></i>
+                <span>Shipping method</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <i class="icon-search icon-large"></i>
+                <span>Order review</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <i class="icon-money icon-large"></i>
+                <span>Payment method</span>
+            </div>
+        </li>
+    </ul>					
+</div>
+
+
+{% elseif step == 'shipping_info' %}
+
+<div id="checkout-progress">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=billing_info">
+                <i class="icon-map-marker icon-large"></i>
+                <span>Billing address</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="#">
+                <i class="icon-envelope icon-large"></i>
+                <span>Shipping address</span>
+            </a>
+        </li>
+        <li>
+            <div>
+                <i class="icon-truck icon-large"></i>
+                <span>Shipping method</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <i class="icon-search icon-large"></i>
+                <span>Order review</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <i class="icon-money icon-large"></i>
+                <span>Payment method</span>
+            </div>
+        </li>
+    </ul>					
+</div>
+
+
+{% elseif step == 'shipping_method' %}
+
+<div id="checkout-progress">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=billing_info">
+                <i class="icon-map-marker icon-large"></i>
+                <span>Billing address</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=shipping_info">
+                <i class="icon-envelope icon-large"></i>
+                <span>Shipping address</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="#">
+                <i class="icon-truck icon-large"></i>
+                <span>Shipping method</span>
+            </a>
+        </li>
+        <li>
+            <div>
+                <i class="icon-search icon-large"></i>
+                <span>Order review</span>
+            </div>
+        </li>
+        <li>
+            <div>
+                <i class="icon-money icon-large"></i>
+                <span>Payment method</span>
+            </div>
+        </li>
+    </ul>					
+</div>
+
+{% elseif step == 'review' %}
+
+<div id="checkout-progress">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=billing_info">
+                <i class="icon-map-marker icon-large"></i>
+                <span>Billing address</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=shipping_info">
+                <i class="icon-envelope icon-large"></i>
+                <span>Shipping address</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=shipping_method">
+                <i class="icon-truck icon-large"></i>
+                <span>Shipping method</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="#">
+                <i class="icon-search icon-large"></i>
+                <span>Order review</span>
+            </a>
+        </li>
+        <li>
+            <div>
+                <i class="icon-money icon-large"></i>
+                <span>Payment method</span>
+            </div>
+        </li>
+    </ul>					
+</div>
+
+{% elseif step == 'pay' %}
+
+<div id="checkout-progress">
+    <ul class="nav nav-tabs">
+       <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=billing_info">
+                <i class="icon-map-marker icon-large"></i>
+                <span>Billing address</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=shipping_info">
+                <i class="icon-envelope icon-large"></i>
+                <span>Shipping address</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=shipping_method">
+                <i class="icon-truck icon-large"></i>
+                <span>Shipping method</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" 
+                data-ajax-handler="shop:checkout" 
+                data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+                data-ajax-extra-fields="nextStep=review">
+                <i class="icon-search icon-large"></i>
+                <span>Order review</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="#">
+                <i class="icon-money icon-large"></i>
+                <span>Payment method</span>
+            </a>
+        </li>
+    </ul>					
+</div>
+{% endif %}

@@ -1,0 +1,8 @@
+---
+name: 'La Boutique'
+description: 'La Boutique - Responsive Theme'
+author: 'Twin Dots'
+website: 'http://www.twindots.com/'
+engine: twig
+404: '404'
+---

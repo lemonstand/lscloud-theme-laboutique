@@ -1,0 +1,24 @@
+---
+action: 'shop:products'
+template: standard
+protocol: all
+published: true
+name: Shop
+url: '/shop/:page?'
+---
+<!-- Shop content -->
+<section class="category">
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                {{ partial("shop-sidebar") }}
+            </div>
+                {{ 
+                partial('shop-product-list', {
+                  'products': products
+                })
+                }}
+        </div>
+    </div>
+</section>
+<!-- End class="category" -->

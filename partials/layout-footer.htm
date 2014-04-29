@@ -1,0 +1,163 @@
+<div class="footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="span2">
+                <!-- Support -->
+                <div class="support">
+                    <h6>Support</h6>
+                    <ul class="links">
+                        <li>
+                            <a href="{{ site_url('/about-us') }}" title="About us" class="title">About us</a>
+                        </li>
+                        <li>
+                            <a href="{{ site_url('/typography') }}" title="Typography" class="title">Typography</a>
+                        </li>
+                        <li>
+                            <a href="{{ site_url('/retina-ready-icons') }}" title="Retina-ready icons" class="title">Retina-ready icons</a>
+                        </li>
+                        <li>
+                            <a href="{{ site_url('/buttons') }}" title="Buttons" class="title">Buttons</a>
+                        </li>
+                        <li>
+                            <a href="{{ site_url('/elements') }}" title="Elements" class="title">Elements</a>
+                        </li>
+                        <li>
+                            <a href="{{ site_url('/grids') }}" title="Grids" class="title">Grids</a>
+                        </li>
+                        <li>
+                            <a href="{{ site_url('/store-locator') }}" title="Store locator" class="title">Store locator</a>
+                        </li>
+                        <li>
+                            <a href="{{ site_url('/contact-us') }}" title="Contact us" class="title">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End class="support" -->
+                <hr />
+                <!-- My account -->
+                <div class="account">
+                    <h6>My account</h6>
+                    <ul class="links">
+                        {% if customer %}
+                            <li><a href="{{ site_url('/orders') }}" title="Order history">Order History</a></li>
+                            <li><a href="{{ site_url('/change-password') }}" title="Change password">Change password</a></li>
+                            <li><a href="{{ site_url('/logout') }}" title="Logout">Logout</a></li>
+                        {% else %}
+                            <li><a href="{{ site_url('/login') }}" title="Login / Register">Login / Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <!-- End class="account"-->
+
+            </div>
+            <div class="span2">
+
+                <!-- Categories -->
+                <div class="categories">
+                    <h6>Shop</h6>
+                    {% tree categories %}
+                    <ul class="links">
+                        {% for category in tree.items %}
+                        <li>
+                            <a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endtree %}
+                </div>
+                <!-- End class="categories" -->
+            </div>
+            <div class="span4">
+                <!-- Pay with confidence -->
+                <div class="confidence">
+                    <h6>Pay with confidence</h6>
+                    <!-- additional card images available in resource images folder -->
+                    <img src="{{ 'images/visa.png'|theme_resource }}" alt="We accept all major credit cards" />
+                    <img src="{{ 'images/mastercard.png'|theme_resource }}" alt="We accept all major credit cards" />
+                    <img src="{{ 'images/paypal.png'|theme_resource }}" alt="We accept all major credit cards" />
+                </div>
+                <!-- End class="confidence" -->
+            </div>
+            <div class="span4">
+                <!-- Newsletter subscription -->
+                <div class="newsletter">
+                    <h6>Newsletter subscription</h6>
+                    <form onsubmit="$('#newsletter_subscribe').modal('show'); return false;" enctype="multipart/form-data" action="index.html" method="post">
+
+                        <div class="input-append">
+                            <input type="text" class="span3" name="email" />
+                            <button class="btn" type="submit">Go!</button>
+                        </div>
+                    </form>
+                    <p>Sign up to receive our latest news and updates direct to your inbox</p>
+                </div>
+                <!-- End class="newsletter" -->
+
+                <hr />
+
+                <!-- Social icons -->
+                <div class="social">
+                    <h6>Socialize with us</h6>
+                    <ul class="social-icons">
+                        <li>
+                            <a class="twitter" href="#" title="Twitter">Twitter</a>
+                        </li>
+                        <li>
+                            <a class="facebook" href="#" title="Facebook">Facebook</a>
+                        </li>
+                        <li>
+                            <a class="pinterest" href="#" title="Pinterest">Pinterest</a>
+                        </li>
+                        <li>
+                            <a class="youtube" href="#" title="YouTube">YouTube</a>
+                        </li>
+                        <li>
+                            <a class="vimeo" href="#" title="Vimeo">Vimeo</a>
+                        </li>
+                        <li>
+                            <a class="flickr" href="#" title="Flickr">Flickr</a>
+                        </li>
+                        <li>
+                            <a class="googleplus" href="#" title="Google+">Google+</a>
+                        </li>
+                        <li>
+                            <a class="dribbble" href="#" title="Dribbble">Dribbble</a>
+                        </li>
+                        <li>
+                            <a class="tumblr" href="#" title="Tumblr">Tumblr</a>
+                        </li>
+                        <li>
+                            <a class="digg" href="#" title="Digg">Digg</a>
+                        </li>
+                        <li>
+                            <a class="linkedin" href="#" title="LinkedIn">LinkedIn</a>
+                        </li>
+                        <li>
+                            <a class="instagram" href="#" title="Instagram">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End class="social" -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Newsletter modal window -->
+<div id="newsletter_subscribe" class="modal hide fade" tabindex="-1">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <div class="hgroup title">
+            <h3>You are now subscribed to our newsletter</h3>
+            <h5>All the latest deals and offers will be making their way to your inbox shortly!</h5>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="pull-left">
+            <button data-dismiss="modal" aria-hidden="true" class="btn btn-small">
+            Close &nbsp; <i class="icon-ok"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- End id="newsletter_subscribe" -->

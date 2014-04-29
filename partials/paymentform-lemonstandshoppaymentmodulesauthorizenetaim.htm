@@ -1,0 +1,69 @@
+---
+description: 'Payment form partial for Authorize.Net AIM payment method'
+---
+<form method="post" action="" data-ajax-handler="shop:onPay">
+    <input type="hidden" value="{{  paymentMethod.id}}" name="payment_method_id">
+    <div class="row-fluid">    
+        <div class="span6">
+                <div class="control-group">
+                    <label for="firstName" class="control-label">Cardholder First Name</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" name="firstName" id="firstName" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="cardNumber" class="control-label">Credit Card Number</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" value="" name="cardNumber" id="cardNumber" />
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="control-group">
+                            <label for="expiryMonth" class="control-label">Expiration Date - Month</label>
+                            <div class="controls">
+                                <select class="span12" name="expiryMonth">
+                                    {% for i in 1..12 %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="control-group">
+                            <label for="expiryYear" class="control-label">Expiration Date - Year</label>
+                            <div class="controls">
+                                <select class="span12" autocomplete="off" name="expiryYear" id="expiryYear">
+                                    {% for i in 2013..2023 %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="span6">
+                <div class="control-group">
+                    <label for="lastName" class="control-label">Cardholder Last Name</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" name="lastName" id="lastName" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="securityCode" class="control-label">CVV2</label>
+                    <div class="controls">
+                        <input autocomplete="off" class="span12" type="text" value="" name="securityCode" id="securityCode"/>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="box-footer">
+        <div class="pull-right">
+            <button class="btn btn-primary" href="#">
+            <i class="icon-money"></i> &nbsp; Pay
+            </button>
+        </div>
+    </div>
+</form>
