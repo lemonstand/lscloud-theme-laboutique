@@ -1,7 +1,7 @@
 lscloud-theme-laboutique
 ========================
 
-LemonStand Cloud La Boutique Theme
+LemonStand Cloud - La Boutique Theme
 
 Created by: [Twin Dots](http://twindots.com/)
 
