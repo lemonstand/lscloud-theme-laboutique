@@ -1,8 +1,8 @@
 {% if product.productAttributes.count %}
-      <table class="compact">
+      <table class="attributes-table">
         {% for attribute in product.productAttributes %}
           <tr>
-            <th>{{ attribute.name }}</th>
+            <td><strong>{{ attribute.name }}:</strong></td>
             <td>{{ attribute.value }}</td>
           </tr>
         {% endfor %}

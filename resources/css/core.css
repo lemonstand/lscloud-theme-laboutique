@@ -4501,3 +4501,11 @@ span.error {color: #D34246;font-style: italic; font-size: 12px;}
 .error input, input.error, .error textarea, textarea.error, .error input:focus, input.error:focus, .error textarea:focus, textarea.error:focus {
 background-color: rgba(198,15,19,0.1);
 }
+
+.attributes-table{
+    margin-top:40px;
+}
+
+.attributes-table td{
+    padding-right:10px;
+}

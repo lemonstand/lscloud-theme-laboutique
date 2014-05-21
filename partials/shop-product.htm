@@ -146,6 +146,35 @@
         </div>
     </section>
     <!-- End class="product-info" -->
+    <!-- Product Reviews -->
+    <section class="product-reviews">
+        <div class="container">
+            <div class="span8 offset2">
+                <h5>Tell us why you <span class="script">love&#10084;</span> this product</h5>
+
+                <!-- Facebook comments -->
+                <div id="fb-root"></div>
+                <script>                            
+                    (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id))
+                            return;
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=300395333459443"; // replace appID with appID from app you create in facebook
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
+
+                <div class="fb-comments" data-width="730" data-href="https:{{ site_url('/') }}product/{{ product.url_name}}" data-num-posts="10"></div> 
+                <!-- For comments to work properly, you first need to create an app in facebook, then add a platform for website and then enter your store's site URL. Then replace the appID above with the one listed on your app in Facebook -->
+                
+                <!-- End Facebook comments -->
+                
+            </div>
+        </div>		
+    </section>
+    <!-- End class="product-reviews" -->
     <!-- Added to cart modal window -->
     <div id="added" class="modal hide fade" tabindex="-1">
         <div class="modal-header">

@@ -89,6 +89,15 @@ $( document ).ready(function() {
     
     	});
     	
+    	
+    	$('.zoomContainer').remove();
+
+		if (typeof(zoomConfig)!='undefined'){
+			$('.product-images .primary img').elevateZoom(zoomConfig);	
+		}
+		
+    	
+    	
     	$('.product-images .primary img').elevateZoom({
     		zoomType: "inner",
     		cursor: "crosshair",
@@ -98,6 +107,7 @@ $( document ).ready(function() {
     		gallery: 'gallery',
     		galleryActiveClass: 'active'
     	});
+    	
     	
 
         }
