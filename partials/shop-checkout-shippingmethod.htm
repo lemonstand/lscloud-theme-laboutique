@@ -42,7 +42,7 @@
                                                     </div>
                                                     <input type="radio" value="{{ index }}"
                                                     {{ option.error_hint ? 'disabled' : null }}
-                                                    {{ radio_state(option.shippingMethodId, shippingMethod) }}
+                                                    {{ radio_state(shippingMethodInfo.id, option.id) }}
                                                     name="shippingMethod" id="{{ 'option'~index }}">
                                                 {% endif %}
                                                 </div>
