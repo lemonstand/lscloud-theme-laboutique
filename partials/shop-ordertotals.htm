@@ -1,17 +1,17 @@
 <div class="box-header">
-	<h3>Order details</h3>
-	<h5>This order was created on {{ order.created_at }}</h5>
+    <h3>Order details</h3>
+    <h5>This order was created on {{ order.created_at }}</h5>
 </div>
 
 <div class="box-body">
-	<ul class="price-list">
-	    <li>Subtotal: <strong>{{ order.subtotal_invoiced|currency }}</strong></li>
-		<li>Discount: <strong>{{ 0|currency }}</strong></li>
-		<li>Tax: <strong>{{ order.total_sales_tax|currency }}</strong></li>
-	    <li>Shipping: <strong>{{ order.total_shipping_quote|currency }}</strong></li>
+    <ul class="price-list">
+        <li>Discount: <strong>{{ order.total_discount|currency }}</strong></li>
+        <li>Subtotal: <strong>{{ order.subtotal_invoiced|currency }}</strong></li>
+        <li>Tax: <strong>{{ order.total_sales_tax|currency }}</strong></li>
+        <li>Shipping: <strong>{{ order.total_shipping_quote|currency }}</strong></li>
         {% if order.total_shipping_tax > 0 %}
           <li>Shipping Taxes:<strong>{{ order.total_shipping_tax|currency }}</strong></li>
         {% endif %}
-		<li class="important">Total: <strong>{{ order.total|currency }}</strong></li>
-	</ul>
+        <li class="important">Total: <strong>{{ order.total|currency }}</strong></li>
+    </ul>
 </div>

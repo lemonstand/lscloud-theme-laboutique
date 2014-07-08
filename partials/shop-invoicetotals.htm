@@ -3,6 +3,9 @@
             <h3>Order total</h3>
         </div>
         <ul class="price-list">
+            {% if invoice.total_discount %}
+                <li>Discount: <strong>{{ invoice.total_discount|currency }}</strong></li>
+            {% endif %}
             <li>Subtotal: <strong>{{ invoice.subtotal|currency }}</strong></li>
             <li>Tax: <strong>{{ invoice.tax_total|currency }}</strong></li>
             <li>Shipping: <strong>{{ invoice.total_shipping_quote|currency }}</strong></li>

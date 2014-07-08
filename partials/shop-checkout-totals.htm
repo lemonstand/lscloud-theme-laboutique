@@ -4,7 +4,10 @@
             <h5>Shipping costs and taxes will be calculated during checkout</h5>
         </div>
         <ul class="price-list">
-            <li>Subtotal: <strong>{{ cart.getSubtotal()|currency }}</strong></li>
+            {% if totals.discountTotal %}
+            <li>Discount: <strong>{{ totals.discountTotal|currency }}</strong></li>
+            {% endif %}
+            <li>Subtotal: <strong>{{ totals.subtotal|currency }}</strong></li>
             {% if totals.totalShippingQuote %}
             <li>Shipping: <strong>{{ totals.totalShippingQuote|currency }}</strong></li>
             {% endif %}

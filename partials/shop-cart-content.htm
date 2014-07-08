@@ -123,14 +123,20 @@
     
                 <!-- Cart details -->
                 <div class="cart-details">
-                    <div class="box">
+                   <div class="box">
                         <div class="hgroup title">
                             <h3>Order totals</h3>
                             <h5>Shipping costs and taxes will be evaluated during checkout</h5>
                         </div>
                         <ul class="price-list">
-                            <li>Subtotal: <strong>{{ cart.getSubtotal()|currency }}</strong></li>
-                            <li class="important">Total: <strong>{{ cart.getTotal()|currency }}</strong></li>
+                            {% if totals.discountTotal > 0 %}
+                                <li>Discount: <strong>{{ totals.discountTotal|currency }}</strong></li>
+                            {% endif %}
+                            <li>Subtotal: <strong>{{ totals.subtotal|currency }}</strong></li>
+                            {% if totals.totalShippingQuote > 0 %}
+                                <li>Shipping: <strong>{{ totals.totalShippingQuote|currency }}</strong></li>
+                            {% endif %}
+                            <li class="important">Total: <strong>{{ totals.total|currency }}</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -146,7 +152,7 @@
     
                         <label for="coupon_code">Coupon code</label>
                         <div class="input-append">
-                            <input id="coupon_code" value="" type="text" name="coupon" />
+                            <input id="coupon_code" value="{{ coupon_code }}" type="text" name="coupon" />
                             <button type="submit" class="btn" value="Apply" name="set_coupon_code" >
                             <i class="icon-ok"></i>
                             </button>
