@@ -23,3 +23,49 @@ url: /contact-us
         <p>A dedicated team provides timely and effective <a href="#">support</a> whenever you need a hand getting things right.</p>
     </div>
 </div>
+
+<div class="row-fluid">
+    <h3>Send us a message</h3>
+
+    {{ flash() }}
+</div>
+
+{{ open_form({'data-ajax-handler': 'system:onSendMessage'}) }}
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label for="fields_email" class="control-label">Your email</label>
+                <div class="controls">
+                    <input class="span12" type="text" value="" name="fields[email]" id="fields_email" />
+                    <span class="error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="span6">
+            <div class="control-group">
+                <label for="fields_name" class="control-label">Your name</label>
+                <div class="controls">
+                    <input class="span12" type="text" value="" name="fields[name]" id="fields_name" />
+                    <span class="error"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="control-group">
+                <label for="fields_message" class="control-label">Message</label>
+                <div class="controls">
+                    <textarea class="span12" rows="8" name="fields[message]" id="fields_message"></textarea>
+                    <span class="error"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+    </div>
+{{ close_form() }}
