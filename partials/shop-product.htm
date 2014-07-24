@@ -104,7 +104,7 @@
                                     {{ partial('shop-product-options') }}
 
                                     {% if product.enabled %}
-                                        {% if not product.isOutOfStock() %}
+                                        {% if not product.isOutOfStock() or product.allow_preorder %}
                                             {{ flash() }}
                                             <div class="add-to-cart">
                                                 <input type="hidden" name="productId" value="{{ product.id }}"/>
