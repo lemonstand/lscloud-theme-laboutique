@@ -35,10 +35,10 @@ url: /orders
 							</thead>
 				
 							<tbody>
-								{% for order in orders %}
+								{% for order in orders if not order.is_quote %}
 								    {% set url = root_url('/order/'~order.id) %}
 									<tr>
-										<td class="col_id">#{{ order.id }}</td>
+										<td class="col_id">#{{ order.number }}</td>
 										<td class="col_date">{{ order.created_at.format('M jS, Y') }}</td>
 
 										<td class="col_count">{{ order.getitemquantity }}<span class="hide-for-small"> item(s)</span></td>

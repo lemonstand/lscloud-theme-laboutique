@@ -13,7 +13,7 @@ url: '/order/:orderId'
     			<div class="box">
     			    
     				<div class="box-header">
-    					<h3>Order #{{ order.id }}</h3>
+    					<h3>Order #{{ order.number }}</h3>
     					<h5>This order is currently <span class="label" style="background-color: {{ order.orderStatus.color }}; ?>"> {{ order.orderStatus.name }}</span> and has been since {{ order.status_updated_at }}</h5>
     				</div>
     				
