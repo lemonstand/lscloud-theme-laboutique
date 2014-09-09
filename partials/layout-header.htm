@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="span6">
                     <p>
-                    Responsive eCommerce theme
+                    {{ theme.sloganText }}
                     </p>
                 </div>
                 <div class="span6 hidden-phone">
@@ -30,7 +30,7 @@
                 <div class="span8">
                     <div class="logo">
                         <a href="{{ site_url('/') }}" title="&larr; Back home">
-                        <img src="{{ 'images/logo.png'|theme_resource }}" alt="La Boutique" />
+                        <img src="{{ theme.logoImage.thumbnail('auto', 60) }}" alt="{{ theme.companyNameText }}" />
                         </a>
                     </div>
                 </div>

@@ -146,6 +146,7 @@
         </div>
     </section>
     <!-- End class="product-info" -->
+    {% if theme.fbCommentsAppIDText > 0 %} <!-- if Facebook App ID is entered, display comments -->
     <!-- Product Reviews -->
     <section class="product-reviews">
         <div class="container">
@@ -161,13 +162,13 @@
                             return;
                         js = d.createElement(s);
                         js.id = id;
-                        js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=300395333459443"; // replace appID with appID from app you create in facebook
+                        js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId={{ theme.fbCommentsAppIDText }}"; // uses App ID specified in custom options.
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));
                 </script>
 
                 <div class="fb-comments" data-width="730" data-href="https:{{ site_url('/') }}product/{{ product.url_name}}" data-num-posts="10"></div> 
-                <!-- For comments to work properly, you first need to create an app in facebook, then add a platform for website and then enter your store's site URL. Then replace the appID above with the one listed on your app in Facebook -->
+                <!-- For comments to work properly, you first need to create an app in facebook, then add a platform for website and then enter your store's site URL. Then paste App ID into theme custom option. -->
                 
                 <!-- End Facebook comments -->
                 
@@ -175,6 +176,7 @@
         </div>		
     </section>
     <!-- End class="product-reviews" -->
+    {% endif %}
     <!-- Added to cart modal window -->
     <div id="added" class="modal hide fade" tabindex="-1">
         <div class="modal-header">
