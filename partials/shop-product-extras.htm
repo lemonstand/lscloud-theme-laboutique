@@ -1,0 +1,15 @@
+{% if product.extras.count %}
+<h5>Product Extras</h5>
+  <div class="clearfix">
+    {% for index, extra in product.extras %}
+        <div class="extra">
+            <label class="title" for="{{ 'extra-'~index }}">{{ extra.name }} ({{ extra.price|currency }})</label>
+            {% if extra.enabled %}
+                <input type="checkbox" id="{{ 'extra-'~index }}" {{ checkbox_state(postedExtras[extra.id], extra.id) }} name="extras[{{ extra.id }}]" data-ajax-handler="shop:product" data-ajax-update="#product-page=shop-product">
+            {% else %}
+                <input type="checkbox" disabled="disabled">
+            {% endif %}
+        </div>
+    {% endfor %}
+  </div>
+{% endif %}

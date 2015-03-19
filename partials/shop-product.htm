@@ -102,6 +102,7 @@
 
                                     {{ partial('shop-product-attributes') }}
                                     {{ partial('shop-product-options') }}
+                                    {{ partial('shop-product-extras') }}
 
                                     {% if product.enabled %}
                                         {% if not product.isOutOfStock() or product.allow_preorder %}
