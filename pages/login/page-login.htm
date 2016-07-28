@@ -90,7 +90,7 @@ url: /login
             <div class="row-fluid">
                 <div class="span6">
                     <div class="control-group">
-                        <label class="control-label" for="signup[first_name]">First name</label>
+                        <label class="control-label" for="signup[first_name]">First name *</label>
                         <div class="controls">
                             <input class="span12" type="text" id="signup[first_name]" name="signup[first_name]" value="" />
                         </div>
@@ -98,7 +98,7 @@ url: /login
                 </div>
                 <div class="span6">
                     <div class="control-group">
-                        <label class="control-label" for="signup[last_name]">Last name</label>
+                        <label class="control-label" for="signup[last_name]">Last name *</label>
                         <div class="controls">
                             <input class="span12" type="text" id="signup[last_name]" name="signup[last_name]" value="" />
                         </div>
@@ -109,7 +109,7 @@ url: /login
             <div class="row-fluid">
                 <div class="span12">
                     <div class="control-group">
-                        <label class="control-label" for="signup[email]">Email address</label>
+                        <label class="control-label" for="signup[email]">Email address *</label>
                         <div class="controls">
                             <input class="span12" type="text" id="signup[email]" name="signup[email]" value="" />
                         </div>
@@ -120,7 +120,7 @@ url: /login
             <div class="row-fluid">
                 <div class="span6">
                     <div class="control-group">
-                        <label class="control-label" for="signup[password]">Password</label>
+                        <label class="control-label" for="signup[password]">Password *</label>
                         <div class="controls">
                             <input class="span12" type="password" id="signup[password]" name="signup[password]" autocomplete="off" />
                         </div>
@@ -128,12 +128,13 @@ url: /login
                 </div>
                 <div class="span6">
                     <div class="control-group">
-                        <label class="control-label" for="signup[password_confirmation]">Password confirm</label>
+                        <label class="control-label" for="signup[password_confirmation]">Password confirm *</label>
                         <div class="controls">
                             <input class="span12" type="password" id="signup[password_confirmation]"  name="signup[password_confirmation]" autocomplete="off" />
                         </div>
                     </div>
                 </div>
+                <input type="checkbox" name="accepts_marketing" id="accepts_marketing" checked style="float: left;"> <label style="margin-left: 1.5em;"> Receive promotional emails</label>
             </div>
         </div>
         <input type="hidden" name="autologin" value="1" />
