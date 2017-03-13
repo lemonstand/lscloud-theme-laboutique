@@ -23630,6 +23630,8 @@ $( document ).ready(function() {
 
 	config.defaults = {};
 
+
+
 	$.removeCookie = function (key, options) {
 		if ($.cookie(key) !== undefined) {
 			// Must not alter options, thus extending a fresh object...
@@ -23640,5 +23642,4 @@ $( document ).ready(function() {
 	};
 
 }));
-
 

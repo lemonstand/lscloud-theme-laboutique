@@ -1,0 +1,13 @@
+{% set blogCategories = [] %}
+<ul class="sub-group">
+  {% for post in cmsContent('blog')|extended_sort('published_on', false) %}
+    {% for category in post.categories %}
+        {% if category.name not in blogCategories %}
+          <li>
+            <a href="/blog/archives/{{ category.slug }}">{{ category.name }}</a>
+          </li>
+          {% set blogCategories = blogCategories|merge([category.name]) %}
+        {% endif %}
+    {% endfor %}
+  {% endfor %}
+</ul>

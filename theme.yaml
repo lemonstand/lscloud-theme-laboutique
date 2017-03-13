@@ -8,11 +8,13 @@ engine: twig
 customFields:
     logoImage: { type: image, title: 'Logo Image', default: '@images/laboutique-logo.png', comment: 'Upload your logo! Recommended height of 60px.' }
     faviconImage: { type: image, title: 'Favicon Image', default: '@images/favicon.png', comment: 'Upload your favicon. Recommended dimmensions of 16px by 16px. You must use a .png file.' }
-    colorThemeDropdown: { type: dropdown, title: 'Color Theme', default: 'css/turquoise.css', options: { 'css/turquoise.css': Turquoise, 'css/amethyst.css' : Amethyst, 'css/alazarin.css' : Alazarin, 'css/belizehole.css' : Belize Hole, 'css/carrot.css' : Carrot, 'css/emerald.css': Emerald,'css/greensea.css' : Green Sea,'css/midnightblue.css' : Midnight Blue, 'css/nephritis.css': Nephritis, 'css/orange.css' : Orange, 'css/peterriver.css' : Peter River, 'css/pomegranate.css': Pomegranate, 'css/pumpkin.css': Pumpkin, 'css/sunflower.css': Sunflower, 'css/wetasphalt.css': Wet Asphalt, 'css/wisteria.css': Wisteria}, comment: 'Pick your predefined color theme.' }
+    colorThemeDropdown: { type: dropdown, title: 'Color Theme', default: css/turquoise.css, options: { css/turquoise.css: Turquoise, css/amethyst.css: Amethyst, css/alazarin.css: Alazarin, css/belizehole.css: 'Belize Hole', css/carrot.css: Carrot, css/emerald.css: Emerald, css/greensea.css: 'Green Sea', css/midnightblue.css: 'Midnight Blue', css/nephritis.css: Nephritis, css/orange.css: Orange, css/peterriver.css: 'Peter River', css/pomegranate.css: Pomegranate, css/pumpkin.css: Pumpkin, css/sunflower.css: Sunflower, css/wetasphalt.css: 'Wet Asphalt', css/wisteria.css: Wisteria }, comment: 'Pick your predefined color theme.' }
     sloganText: { type: text, title: 'Slogan Title Text', default: 'Responsive eCommerce Theme', comment: 'Text used for the slogan text at the top of all pages.' }
     companyNameText: { type: text, title: 'Company Name', default: 'La Boutique', comment: 'Your company name. Used in footer, logo alt text, etc.' }
     twitterLinkText: { type: text, title: 'Twitter Link', default: '#', comment: 'Paste in the URL to your Twitter profile. Make sure it starts with http.' }
     facebookLinkText: { type: text, title: 'Facebook Link', default: '#', comment: 'Paste in the URL to your Facebook page. Make sure it starts with http.' }
     pinterestLinkText: { type: text, title: 'Pinterest Link', default: '#', comment: 'Paste in the URL to your Pinterest profile. Make sure it starts with http.' }
     fbCommentsAppIDText: { type: text, title: 'Facebook Comments App ID', default: '', comment: 'For Facebook product reviews/comments to work, first create an app in Facebook, then paste in your app ID.' }
+    ratingToggle: { type: checkbox, title: 'Product Ratings', default: 'checked', comment: 'Activate product ratings for this theme.'}
+    socialToggle: { type: checkbox, title: 'Social Links', default: 'checked', comment: 'Activate social media links.'}
 ---

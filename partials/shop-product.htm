@@ -28,7 +28,8 @@
                                 </ul>
                             </div>
                             {% endif %}
-                            <div class="social">
+                             {% if theme.socialToggle %}
+                              <div class="social">
                                 <div id="sharrre">
                                     <div class="facebook"></div>
                                     <div class="twitter"></div>
@@ -36,6 +37,8 @@
                                     <div class="pinterest"></div>
                                 </div>
                             </div>
+                            {% endif %}
+                            
                         </div>
                     </div>
                 </div>
@@ -100,6 +103,64 @@
                                         </div>
                                     {% endif %}
 
+                                    {% if theme.ratingToggle %}
+                                        <div class="product-rating-container">
+                                        <!-- product ratings -->
+                                            {% set product_rating = product.rating() %}
+                                            <p style="display: inline;">
+                                              {% if product_rating.total_reviews %}
+                                            <span style="margin-right: -4px">
+                                              {% for i in range(1, product_rating.average_int) %}&starf;{% endfor %}
+                                            </span>
+                                            {% if product_rating.average_int != 5 %}{% for i in range(1, 5 - product_rating.average_int) %}&star;{% endfor %}{% endif %}
+                                             ({{ product_rating.total_reviews }})
+                                            {% else %}
+                                            &star;&star;&star;&star;&star;
+                                             (no reviews yet)
+                                            {% endif %}
+                                            </p>
+
+                                            {% if product_rating.total_reviews %}
+
+                                              <!-- View Review -->
+                                              <a data-toggle="modal" data-target="#viewModal" href="#">View Review(s)</a>
+                                              &nbsp;&nbsp;|&nbsp;&nbsp;
+
+                                              <!-- Write Review -->
+                                              <a data-toggle="modal" data-target="#writeModal" href="#">Write Review</a>
+
+                                            {% else %}
+                                              <!-- Write Review -->
+                                              <a id="write-review" href="#">Write Review</a>
+                                            {% endif %}
+                                            <div id="viewModal" class="modal fade" role="dialog">
+                                                {{ partial('shop-product-review-view') }}
+                                            </div>
+                                            <div id="writeModal" class="modal fade" role="dialog">
+                                                {{ partial('shop-product-review-form') }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                    {% if product.priceTiers %}
+                                    <h5>Bulk Pricing</h5>
+                                    <table class="volume-pricing-table">
+                                        <thead>
+                                            <td>Qty</td>
+                                            <td>Price</td>
+                                        </thead>
+                                          {% for priceTier in product.priceTiers %}
+                                          <tr>
+                                            <td>
+                                              {% if loop.last %} {{priceTier.quantity}}+
+                                              {% else %} {{ priceTier.quantity}} - {{product.priceTiers[loop.index].quantity - 1}} {% endif %}
+                                            </td>
+                                            <td>{{priceTier.price|currency}}/each</td>
+                                          </tr>
+                                          {% endfor %}
+                                    </table>
+                                    {% endif %}
+
                                     {{ partial('shop-product-attributes') }}
                                     {{ partial('shop-product-options') }}
                                     {{ partial('shop-product-extras') }}
@@ -108,6 +169,7 @@
                                         {% if not product.isOutOfStock() or product.allow_preorder %}
                                             {{ flash() }}
                                             <div class="add-to-cart">
+                                                <div class="stock-level">{{ product.in_stock_amount }} available</div>
                                                 <input type="hidden" name="productId" value="{{ product.id }}"/>
                                                 <button class="btn btn-primary btn-large" href="#" id="add_to_cart">
                                                 <i class="icon-plus"></i> &nbsp; Add to cart</button>
@@ -144,7 +206,19 @@
 
                 </div>
             </div>
+            <div class="row">
+                <div class="span12 related-items">
+                <h3>Related items</h3>
+                    {% for product in product.crosssells %}
+                        {{ partial('shop-product-grid-item', {'product':product}) }}
+                    {% endfor %}
+                    {% for product in product.upsells %}
+                        {{ partial('shop-product-grid-item', {'product':product}) }}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
+
     </section>
     <!-- End class="product-info" -->
     {% if theme.fbCommentsAppIDText > 0 %} <!-- if Facebook App ID is entered, display comments -->

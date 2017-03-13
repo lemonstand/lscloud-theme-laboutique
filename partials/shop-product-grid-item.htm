@@ -1,0 +1,34 @@
+{% set is_on_sale = product.onSale %}
+{% set page_url = '/product/' ~ product.url_name %}
+
+<li class="box span3 mobile-two {{ is_on_sale ? 'sale' : null }}">
+
+  <div class="item">
+
+    <div>
+      <a href="{{ page_url }}"><img src="{{ product.images.first.thumbnail(365, 365)|default('http://placehold.it/365x365') }}" width="365" height="365" alt="{{ product.images.first.description }}" title="{{ product.images.first.title }}"/></a>
+    </div>
+
+    <div class="short-description related-grid-item">
+      <h3><a href="{{ page_url }}">{{ product.name }}</a></h3>
+      <span>
+        <a href="{{ page_url }}">
+            {% if is_on_sale %}<span class="oldprice">{{ product.fullPrice|currency }}</span>{% endif %}
+            
+            {% if product.type == 'upsell' and product.discount %}
+                <span style="text-decoration: line-through;">
+                    {{ product.product_relation.base_price|currency }}
+                </span> <br />
+                {{ (product.product_relation.base_price - product.discount)|currency }}
+            {% else %}
+                {{ product.product_relation.base_price|currency }}
+            {% endif %}
+        </a>
+      </span>
+    </div>
+
+    {% if is_on_sale %}<span class="salesign">SALE</span>{% endif %}
+
+  </div>
+
+</li>

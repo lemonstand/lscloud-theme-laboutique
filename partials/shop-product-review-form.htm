@@ -1,0 +1,85 @@
+<div class="review-view-container">
+				<a title="Close" data-dismiss="modal" class="review-close-icon"><i class="glyphicon glyphicon-remove icon-remove pull-right"></i></a> 
+				<h1>Review {{ product.name }}</h1>
+
+				{{ flash() }}
+				{{ open_form({'data-ajax-handler': 'system:product-review'}) }}
+
+					<input type="text" class="input-sm form-control" id="contact_name" name="fields[name]" value="" placeholder="Your name"/>
+					<span class="error"></span>
+
+
+					<input type="text" class="input-sm form-control" id="contact_email" name="fields[email]" value="" placeholder="Email address"/>
+					<span class="error"></span>
+
+
+					<input type="text" class="input-sm form-control" id="subject" name="fields[subject]" value="" placeholder="Title for your review"/>
+					<span class="error"></span>
+
+
+					<textarea class="input-sm form-control" id="contact_message" name="fields[message]" value="" rows="10" placeholder="Your review"></textarea>
+					<span class="error"></span>
+
+					<div class="rating">
+						<span id="love">☆</span><span id="like">☆</span><span id="ok">☆</span><span id="dont-like">☆</span><span id="hate">☆</span>
+						<p>&nbsp;</p>
+					</div>
+
+					<select style="display:none" id="item_rating" name="fields[item_rating]">
+						<option value="" diabled>-</option>
+						<option value="1">&starf;&star;&star;&star;&star;</option>
+						<option value="2">&starf;&starf;&star;&star;&star;</option>
+						<option value="3">&starf;&starf;&starf;&star;&star;</option>
+						<option value="4">&starf;&starf;&starf;&starf;&star;</option>
+						<option value="5">&starf;&starf;&starf;&starf;&starf;</option>
+					</select>
+
+					<script type="text/javascript">
+						//
+					    // Star rating
+					    //
+					    $('.rating > span').click(function() {
+					        var currentId = $(this).attr('id');
+					        if ( currentId === 'hate' ) {
+					            $('#hate').addClass('select');
+					            $( '#dont-like, #ok, #like, #love' ).removeClass('select');
+					            $('.rating > p').text( 'I hate it' );
+					            $("#item_rating").val('1');
+					        }
+					        if ( currentId === 'dont-like' ) {
+					            $( '#hate, #dont-like' ).addClass('select');
+					            $( '#ok, #like, #love' ).removeClass('select');
+					            $('.rating > p').text( 'I don\'t like it' );
+					            $("#item_rating").val('2');
+					        }
+					        if ( currentId === 'ok' ) {
+					            $( '#hate, #dont-like, #ok' ).addClass('select');
+					            $( '#like, #love' ).removeClass('select');
+					            $('.rating > p').text( 'It\'s ok' );
+					            $("#item_rating").val('3');
+					        }
+					        if ( currentId === 'like' ) {
+					            $( '#hate, #dont-like, #ok, #like' ).addClass('select');
+					            $( '#love' ).removeClass('select');
+					            $('.rating > p').text( 'I like it' );
+					            $("#item_rating").val('4');
+					        }
+					        if ( currentId === 'love' ) {
+					            $( '#hate, #dont-like, #ok, #like, #love' ).addClass('select');
+					            $('.rating > p').text( 'I love it' );
+					            $("#item_rating").val('5');
+					        }
+					        console.log($('#item_rating').val());
+					    });
+					</script>
+					<span class="error"></span>
+					
+					<input type="submit" data-dismiss="modal" class="button call-to-action btn btn-primary btn-large" value="Submit" style="width: 100%"/>
+					<input type="text" name="hp" value="" style="display: none"/>
+					<input type="hidden" name="fields[shop_customer_id]" value="{{customer.id}}"/>
+					<input type="hidden" name="fields[shop_product_id]" value="{{product.id}}"/>
+					<input type="hidden" name="fields[message_type]" value="review"/>
+
+				{{ close_form() }}
+
+			</div>

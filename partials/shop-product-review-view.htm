@@ -1,0 +1,48 @@
+<div class="review-view-container">
+    <a title="Close" data-dismiss="modal" class="review-close-icon"><i class="glyphicon glyphicon-remove icon-remove pull-right"></i></a> 
+
+    <h1> {{ product.name }}</h1>
+    {% set product_rating = product.rating() %}
+
+    {% if product_rating.total_reviews %}
+        <span style="margin-right: -4px">
+        {% for i in range(1, product_rating.average_int) %}&starf;{% endfor %}
+        </span>
+        {% if product_rating.average_int != 5 %}
+        {% for i in range(1, 5 - product_rating.average_int) %}&star;{% endfor %} 
+        {% endif %}
+        Based on {{ product_rating.total_reviews }} 
+        {% if product_rating.total_reviews == 1 %} review {% else %} reviews {% endif %}
+    {% endif %}
+    <p><a class="blue" href="#" data-dismiss="modal" data-toggle="modal" data-target="#writeModal"><strong>Write a Review</strong></a></p>
+    <div class="reviews">
+        {% for review in product.reviews() %}
+            <div>
+                <strong>{{ review.title }}</strong>
+                <br/>
+                {% if review.item_rating == 5 %}
+                <p class="review-rating">&starf;&starf;&starf;&starf;&starf;</p>
+                {% endif %}
+                {% if review.item_rating == 4 %}
+                <p class="review-rating">&starf;&starf;&starf;&starf;&star;</p>
+                {% endif %}
+                {% if review.item_rating == 3 %}
+                <p class="review-rating">&starf;&starf;&starf;&star;&star;</p>
+                {% endif %}
+                {% if review.item_rating == 2 %}
+                <p class="review-rating">&starf;&starf;&star;&star;&star;</p>
+                {% endif %}
+                {% if review.item_rating == 1 %}
+                <p class="review-rating">&starf;&star;&star;&star;&star;</p>  
+                {% endif %}
+                <p class="review-date">{{ review.created_at|date('M jS, Y') }}</p>
+
+                <p><em>{{ review.comment }}</em></p>
+                <p>{{ review.from_name }}</p>
+                <hr>
+                
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

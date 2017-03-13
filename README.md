@@ -20,31 +20,31 @@ La Boutique’s versatility provides you with the tools to weave elegant eCommer
 ##Template features and options
 
 * Fully responsive down to mobile (5 breakpoints for perfect viewing on mobiles, tablets, small screens and large screens!)  
-
+  
 * 16 beautiful color combinations: Turquoise, Green sea, Emerald, Nephritis, Peter river, Belize Hole, Amethyst, Wisteria, Wet asphalt, Midnight blue, Sunflower, Orange, Carrot, Pumpkin, Alizarin, Pomegranate  
-
+  
 * Responsive Flexslider slideshow on homepage - supports images of any height!  
-
+  
 * Hover on product thumbnails for second image  
-
+  
 * Guest and registered user checkout  
-
+  
 * Hover on product image to zoom for a closer look  
-
+  
 * Masonry/Isotope style product list with price filtering  
-
+  
 * Sharing icons for Twitter, Facebook, and Pinterest lets customers share your products on their favourite social network  
-
-* Responsive MegaMenu
-
+ 
+* Responsive MegaMenu 
+  
 * Over 360+ retina ready icons from Font Awesome  
-
+  
 * Stunning Typography styles  
-
+  
 * Flexible Button sizes and colors  
-
+  
 * Nicely styled elements for your sizing charts, images and notifications  
-
+  
 * Instant search allowing your customers to find the product they want with ease  
-
+  
 * And much more…  

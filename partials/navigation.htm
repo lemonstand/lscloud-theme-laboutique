@@ -22,9 +22,12 @@
                                 {% endtree %}
                                 {% endif %}
                             </li>
-                            <li class="{{ active_page == 'about-us' ? 'active' : null }}"><a href="{{ site_url('about-us') }}">About</a></li>
-                            <li class="{{ active_page == 'contact-us' ? 'active' : null }}"><a href="{{ site_url('contact-us') }}">Contact Us</a></li>
+                            
                         </ul>
+                        {{ widget_block("header-menu") }}
+                        <script type="text/javascript"> 
+                            $(".menu-main-navigation-container ul").not(".main-menu .sub-menu").children().appendTo("ul#menu-main-navigation");
+                        </script>
                     </div>
                 </div>
             </div>

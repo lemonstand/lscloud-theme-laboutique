@@ -194,7 +194,7 @@ $(window).smartresize(function() {
 
 	
 	boutique.resize_menu(screen_width);
-});
+}); 
 $(window).load(function() {
 	"use strict";
 
@@ -333,4 +333,5 @@ $(window).load(function() {
 		
 		
 	});
+
 });

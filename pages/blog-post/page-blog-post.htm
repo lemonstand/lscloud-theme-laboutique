@@ -1,0 +1,48 @@
+---
+action: 'cmscontent:blog'
+template: inner
+protocol: all
+published: true
+name: 'Blog Post'
+url: /blog/:slug
+---
+<section class="main">
+  <div class="container box">
+    <div class="row">
+      <div class="content span12 category-content">
+        <!-- <div class="row"> -->
+          <p>
+            <em>Published {{ post.published_on | date("F j, Y") }} In {{ post.type }}</em>
+          </p>
+          <!-- BLOG -->
+          {% if featured_image %}
+              <img src="{{ featured_image.thumbnail(1000, 'auto')|default('http://placehold.it/1000x365') }}" width="1000" alt="{{ featured_image.alt }}"/>
+          {% endif %}
+          <div id="blog-content">
+            {{ post.body | unescape }}
+          </div>
+          <!-- BIO -->
+          <div class="bio-container">
+            {% if profile_image %}
+                <img class="img-circle" src="{{ profile_image.thumbnail(252, 'auto')|default('http://placehold.it/100x100') }}" style="height: 100px; width: 100px;" alt="{{ profile_image.alt }}"/>
+            {% endif %}
+            <strong>{{ post.author_name }}</strong>
+            <ul class="social-links">
+              {% for link in post.user.getSocialProfiles() %}
+                <li class="{{ link.name }}">
+                  <a href="{{ link.link }}"><i class="icon icon-{{ link.name }}"></i><span>{{ link.name }}</span></a>
+                </li>
+              {% endfor %}
+            </ul>
+            <div class="author-bio">
+              {{ post.user.user_bio|unescape }}
+            </div>
+          </div>
+        <!-- </div> -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
