@@ -15,6 +15,6 @@ customFields:
     facebookLinkText: { type: text, title: 'Facebook Link', default: '#', comment: 'Paste in the URL to your Facebook page. Make sure it starts with http.' }
     pinterestLinkText: { type: text, title: 'Pinterest Link', default: '#', comment: 'Paste in the URL to your Pinterest profile. Make sure it starts with http.' }
     fbCommentsAppIDText: { type: text, title: 'Facebook Comments App ID', default: '', comment: 'For Facebook product reviews/comments to work, first create an app in Facebook, then paste in your app ID.' }
-    ratingToggle: { type: checkbox, title: 'Product Ratings', default: 'checked', comment: 'Activate product ratings for this theme.'}
-    socialToggle: { type: checkbox, title: 'Social Links', default: 'checked', comment: 'Activate social media links.'}
+    ratingToggle: { type: checkbox, title: 'Product Ratings', default: checked, comment: 'Activate product ratings for this theme.' }
+    socialToggle: { type: checkbox, title: 'Social Links', default: checked, comment: 'Activate social media links.' }
 ---
