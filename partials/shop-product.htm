@@ -9,7 +9,7 @@
                     <div class="product-images">
                         <div class="box">
                             <div class="primary">
-                                <img itemprop="image" src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" 
+                                <img itemprop="image" src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}"
                                 data-zoom-image="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.images.first.title }}"/>
                             </div>
 
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             {% endif %}
-                            
+
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                                                 <span itemprop="identifier" content="sku" rel="tooltip" title="SKU is {{ product.sku }}">{{ product.sku }}</span>
                                             </div>
                                             <div class="categories">
-                                                
+
                                                 <ul class="links">
                                                     {% for category in product.categories %}
                                                         <span itemprop="category"><i class="icon-tags"></i><a href="/category/{{ category.fullUrlName }}" title="{{ category.name }}">{{ category.name }}</a></span>
@@ -125,20 +125,11 @@
                                               <!-- View Review -->
                                               <a data-toggle="modal" data-target="#viewModal" href="#">View Review(s)</a>
                                               &nbsp;&nbsp;|&nbsp;&nbsp;
-
-                                              <!-- Write Review -->
-                                              <a data-toggle="modal" data-target="#writeModal" href="#">Write Review</a>
-
-                                            {% else %}
-                                              <!-- Write Review -->
-                                              <a id="write-review" href="#">Write Review</a>
                                             {% endif %}
-                                            <div id="viewModal" class="modal fade" role="dialog">
-                                                {{ partial('shop-product-review-view') }}
-                                            </div>
-                                            <div id="writeModal" class="modal fade" role="dialog">
-                                                {{ partial('shop-product-review-form') }}
-                                            </div>
+                                            <!-- Write Review -->
+                                            <a data-toggle="modal" data-target="#writeModal" href="#">Write Review</a>
+                                            {{ partial('shop-product-review-view') }}
+
                                         </div>
                                         {% endif %}
 
@@ -187,7 +178,7 @@
                                     {% else %}
                                         <div class="not-available"><p>This product is not available.</p></div>
                                     {% endif %}
-                                    
+
                                 </div>
                                 <!-- End id="product" -->
 
@@ -230,7 +221,7 @@
 
                 <!-- Facebook comments -->
                 <div id="fb-root"></div>
-                <script>                            
+                <script>
                     (function(d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0];
                         if (d.getElementById(id))
@@ -242,13 +233,13 @@
                     }(document, 'script', 'facebook-jssdk'));
                 </script>
 
-                <div class="fb-comments" data-width="730" data-href="https:{{ site_url('/') }}product/{{ product.url_name}}" data-num-posts="10"></div> 
+                <div class="fb-comments" data-width="730" data-href="https:{{ site_url('/') }}product/{{ product.url_name}}" data-num-posts="10"></div>
                 <!-- For comments to work properly, you first need to create an app in facebook, then add a platform for website and then enter your store's site URL. Then paste App ID into theme custom option. -->
-                
+
                 <!-- End Facebook comments -->
-                
+
             </div>
-        </div>		
+        </div>
     </section>
     <!-- End class="product-reviews" -->
     {% endif %}
