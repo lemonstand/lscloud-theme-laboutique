@@ -11,7 +11,7 @@
             {% for category in post.categories %}
                 {% if category.name not in blogCategories %}
                   <li>
-                    <a href="/blog/archives/{{ category.slug }}">{{ category.name }}</a>
+                    <a href="/archives/blog/{{ category.slug }}">{{ category.name }}</a>
                   </li>
                   {% set blogCategories = blogCategories|merge([category.name]) %}
                 {% endif %}
