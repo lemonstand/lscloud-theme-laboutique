@@ -1,1 +1,70 @@
 /*Custom Styles*/
+.blog-image {
+  padding:44px 0 0 44px;
+}
+.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.product-rating-container {
+  margin-top: 18px;
+}
+
+.product-info .product-content #product .details {
+  padding-bottom: 0;
+}
+
+.volume-pricing-table, .attributes-table {
+  width: 100%;
+}
+
+.btn.facebook, .btn.twitter, .btn.pinterest, .btn.googleplus {
+  text-transform: uppercase;
+}
+
+.btn.facebook {
+  background: #3b5998;
+}
+
+.btn.twitter {
+  background: #55acee;
+}
+
+.btn.pinterest {
+  background: #ce2127;
+}
+
+.btn.google {
+  background: #d50f25;
+}
+
+.facebook .badge.counter {
+  color: #3b5998;
+}
+
+.twitter .badge.counter {
+  color: #55acee;
+}
+
+.pinterest .badge.counter {
+  color: #ce2127;
+}
+
+.google .badge.counter {
+  color: #d50f25;
+}
+
+.share .counter {
+  background: #fff;
+  color: #000;
+}
+
+.share > i {
+  font-size: 18px;
+}
+
+.social.social-links {
+  text-align: center;
+}

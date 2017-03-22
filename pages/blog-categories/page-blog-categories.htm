@@ -4,29 +4,33 @@ template: inner
 protocol: all
 published: true
 name: Blog Categories
-url: /blog/archives/:category
+url: /archives/:type/:category
 ---
 
-<section class="main">
-  <div class="container basic-page-back">
-    <div class="row">
-      <div class="content span12 category-content">
+
+  <div class="category">
+    <div class="container">
+      <div class="row">
       {% if archives | length > 0 %}
       {% paginate archives by 5 %}
-      {% for post in pagination.items %}
-        <h2>{{ category }}</h2>
-        <article class="{{ post.type }}">
-            <header>
-
-                <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-                <p>{{ post.published_on | date("F j, Y") }}</p>
-                <p><strong>{{ post.author_name }}</strong> in <var>{{ post.type }}</var></p>
-            </header>
-            <aside>{{ post.excerpt | unescape }}</aside>
-        </article>
-        <hr/>
-        {% endfor %}
-
+      <div class="span3">
+        {{ partial('blog-categories') }}
+      </div>
+      <div class="span9">
+        <div class="product-content">
+          <div class="box">
+            <h1>{{ category }}</h1>
+            <hr />
+            {% for post in pagination.items %}
+              <div>
+                <h5><a href="/blog/{{ post.guid }}">{{ post.title }}</a></h5>
+                <div>{{ post.excerpt | unescape }}</div>
+                <div><a href="/blog/{{ post.guid }}">Read More</a></div>
+              </div>
+              <hr/>
+            {% endfor %}
+          </div>
+        </div>
         <div class="pagination-centered">
           <div class="pagination">
             {% navigation %}
@@ -46,4 +50,3 @@ url: /blog/archives/:category
     </div>
     </div>
   </div>
-</section>
