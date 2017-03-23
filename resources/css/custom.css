@@ -1,4 +1,7 @@
 /*Custom Styles*/
+body.modal-backdrop.fade.in {
+    overflow: hidden;
+}
 .blog-image {
   padding:44px 0 0 44px;
 }
