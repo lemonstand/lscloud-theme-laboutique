@@ -1,20 +1,19 @@
 {% if product.options.count %}
-<div class="options">
-    <div class="row-fluid">
-        <div class="span6">
-            {% for index, option in product.options %}
-                <div class="control-group">
-                    <label class="title" for="{{ 'option-'~index }}">{{ option.name }}</label>
-                    <div class="controls">
-                        <select id="{{ 'option-'~index }}" name="options[{{ option.id }}]" class="product-option">
-                          {% for key, value in option.values %}
-                            <option value='{{ key }}' {{ option_state(postedOptions[option.id], key) }}>{{ value }}</option>
-                          {% endfor %}
-                        </select>
-                    </div>
-                </div>
-            {% endfor %}    
+<h5>Product Options</h5>
+  <div class="row-fluid">
+    {% for index, option in product.options %}
+      <div class="span6">
+        <div class="control-group">
+            <label class="title" for="{{ 'option-'~index }}">{{ option.name }}</label>
+            <div class="controls">
+                <select id="{{ 'option-'~index }}" name="options[{{ option.id }}]" class="product-option">
+                  {% for key, value in option.values %}
+                    <option value='{{ key }}' {{ option_state(postedOptions[option.id], key) }}>{{ value }}</option>
+                  {% endfor %}
+                </select>
+            </div>
         </div>
-    </div>
-</div>
+      </div>
+    {% endfor %}
+  </div>
 {% endif %}

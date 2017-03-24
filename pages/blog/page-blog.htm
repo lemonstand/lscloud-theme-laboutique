@@ -1,0 +1,50 @@
+---
+action: 'cmscontent:archive'
+template: inner
+protocol: all
+published: true
+name: Blog
+url: /archives/:type
+---
+
+
+
+  <div class="category">
+    <div class="container">
+      <div class="row">
+        {% if archives | length > 0 or publishedPosts > 0 %}
+          {% paginate archives by 5 %}
+            {% set publishedPosts = 0 %}
+            <div class="span3">
+              {{ partial('blog-categories') }}
+            </div>
+            <div class="span9">
+              <div class="product-content">
+                <div class="box">
+                  {% for post in archives %}
+                    {% if post.status == "published" %}
+                      {% set publishedPosts = publishedPosts + 1 %}
+                    {% endif %}
+                    <div>
+                      <h5><a href="/blog/{{ post.guid }}">{{ post.title }}</a></h5>
+                      <div>{{ post.excerpt | unescape }}</div>
+                      <div><a href="/blog/{{ post.guid }}">Read More</a></div>
+                    </div>
+                    <hr/>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div class="pagination-centered">
+                <div class="pagination">
+                  {% navigation %}
+                </div>
+              </div>
+            </div>
+          {% endpaginate %}
+        {% else %}
+          <h2>No posts found</h2>
+        {% endif %}
+      </div>
+    </div>
+  </div>

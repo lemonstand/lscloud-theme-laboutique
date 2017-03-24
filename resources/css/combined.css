@@ -6159,7 +6159,7 @@ a.badge:focus {
 
 /*
  * La Boutique - Responsive HTML Template
- * By tfingi  
+ * By tfingi
  * Created: 10. Sept 2013
  */
 /* Table of Content
@@ -6215,7 +6215,7 @@ a.badge:focus {
 * STORE LOCATOR
 * ROW COLLAPSE
 * POST MINI
-* MEGAMENU CUSTOMIZATION 
+* MEGAMENU CUSTOMIZATION
 */
 /*---
 | COLOR SCHEME
@@ -7382,7 +7382,7 @@ textarea {
   display: none;
 }
 /*=====
-	
+
 	HEADER
 
 =====*/
@@ -11788,7 +11788,7 @@ background-color: rgba(198,15,19,0.1);
  * Contributing author: Tyler Smith (@mbmufffin)
  */
 
- 
+
 /* Browser Resets */
 .flex-container a:active,
 .flexslider a:active,
@@ -11796,18 +11796,18 @@ background-color: rgba(198,15,19,0.1);
 .flexslider a:focus  {outline: none;}
 .slides,
 .flex-control-nav,
-.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
 
 /* FlexSlider Necessary Styles
-*********************************/ 
+*********************************/
 .flexslider {margin: 0; padding: 0;}
 .flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides img {width: 100%; display: block;height: auto; }
 .flex-pauseplay span {text-transform: capitalize;}
 
 /* Clearfix for the .slides element */
-.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
-html[xmlns] .slides {display: block;} 
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
 * html .slides {height: 1%;}
 
 /* No JavaScript Fallback */
@@ -12124,4 +12124,3 @@ html[xmlns] .slides {display: block;}
 	.megamenu-content .map-canvas:last-child {
 		margin-bottom: 0;
 	}
-

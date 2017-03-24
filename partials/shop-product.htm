@@ -3,148 +3,210 @@
 <section class="product">
     <!-- Product info -->
     <section class="product-info">
-        <div class="container" itemscope itemtype="http://data-vocabulary.org/Product">
-            <div class="row">
-                <div class="span4">
-                    <div class="product-images">
-                        <div class="box">
-                            <div class="primary">
-                                <img itemprop="image" src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" 
-                                data-zoom-image="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.images.first.title }}"/>
-                            </div>
-
-                            {% if product.images.count > 1 %}
-                            <div class="thumbs" id="gallery">
-                                <ul class="thumbs-list">
-                                    {% set counter=1 %}
-                                    {% for image in product.images %}
-                                    <li>
-                                        <a class="{{ counter == 1 ? 'active' : null }}" href="#" data-image="{{ image.thumbnail(746, 'auto') }}" title="{{ product.title }}" data-zoom-image="{{ image.thumbnail(746, 'auto') }}">
-                                        <img src="{{ image.thumbnail(228, 228) }}" alt="{{ image.title }}" />
-                                        </a>
-                                    </li>
-                                    {% set counter = counter + 1 %}
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            {% endif %}
-                            <div class="social">
-                                <div id="sharrre">
-                                    <div class="facebook"></div>
-                                    <div class="twitter"></div>
-                                    <div class="googleplus"></div>
-                                    <div class="pinterest"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container" itemscope itemtype="http://data-vocabulary.org/Product">
+        <div class="row">
+          <div class="span4">
+            <div class="product-images">
+              <div class="box">
+                <div class="primary">
+                  <img itemprop="image" src="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}"
+                  data-zoom-image="{{ product.images.first.thumbnail(746, 'auto')|default('http://placehold.it/460x300') }}" alt="{{ product.images.first.title }}"/>
                 </div>
-                <div class="span8">
+                {% if product.images.count > 1 %}
+                  <div class="thumbs" id="gallery">
+                    <ul class="thumbs-list">
+                      {% set counter=1 %}
+                      {% for image in product.images %}
+                        <li>
+                            <a class="{{ counter == 1 ? 'active' : null }}" href="#" data-image="{{ image.thumbnail(746, 'auto') }}" title="{{ product.title }}" data-zoom-image="{{ image.thumbnail(746, 'auto') }}">
+                            <img src="{{ image.thumbnail(228, 228) }}" alt="{{ image.title }}" />
+                            </a>
+                        </li>
+                        {% set counter = counter + 1 %}
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+                {% if theme.socialToggle %}
+                  <div class="social social-links">
+                    <button class="facebook btn btn-mini share s_facebook">
+                      <i class="icon-facebook-sign"></i> &nbsp;
+                      <span class='badge counter c_facebook'>&nbsp;</span>
+                    </button>
 
-                    <!-- Product content -->
-                    <div class="product-content">
-                        <div class="box">
-                            <!-- Tab panels' navigation -->
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a href="#product" data-toggle="tab">
-                                    <i class="icon-reorder icon-large"></i>
-                                    <span class="hidden-phone">Product</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#description" data-toggle="tab">
-                                    <i class="icon-info-sign icon-large"></i>
-                                    <span class="hidden-phone">Info</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- End Tab panels' navigation -->
+                    <button class="twitter btn btn-mini share s_twitter">
+                        <i class="icon-twitter-sign"></i>
+                    </button>
 
-                            <!-- Tab panels container -->
+                    <button class="google btn btn-mini share s_plus">
+                        <i class="icon-google-plus-sign"></i> &nbsp;
+                        <span class='badge counter c_plus'>&nbsp;</span>
+                    </button>
 
-                            <div class="tab-content">
+                    <button class="pinterest btn btn-mini share s_pinterest">
+                        <i class="icon-pinterest-sign"></i> &nbsp;
+                        <span class='badge counter c_pinterest'>&nbsp;</span>
+                    </button>
 
-                                <!-- Product tab -->
-                                <div class="tab-pane active" id="product" itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer">
-                                    <div class="details">
-                                        <h1 itemprop="name">{{ product.name }}</h1>
-
-                                        {% if on_sale %}
-                                            <div class="prices on-sale">
-                                                <span class="on-sale-price">{{ product.fullPrice|currency }}</span>
-                                            </div>
-                                        {% endif %}
-                                        <div class="prices">
-                                            <span class="price" itemprop="price">{{ product.price|currency }}</span>
-                                            <meta itemprop="currency" content="USD" />
-                                        </div>
-                                        <div class="meta">
-                                            <div class="sku">
-                                                <i class="icon-pencil"></i>
-                                                <span itemprop="identifier" content="sku" rel="tooltip" title="SKU is {{ product.sku }}">{{ product.sku }}</span>
-                                            </div>
-                                            <div class="categories">
-                                                
-                                                <ul class="links">
-                                                    {% for category in product.categories %}
-                                                        <span itemprop="category"><i class="icon-tags"></i><a href="/category/{{ category.fullUrlName }}" title="{{ category.name }}">{{ category.name }}</a></span>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% if product.short_description %}
-                                        <div class="short-description">
-                                            {{ product.short_description|unescape }}
-                                        </div>
-                                    {% endif %}
-
-                                    {{ partial('shop-product-attributes') }}
-                                    {{ partial('shop-product-options') }}
-                                    {{ partial('shop-product-extras') }}
-
-                                    {% if product.enabled %}
-                                        {% if not product.isOutOfStock() or product.allow_preorder %}
-                                            {{ flash() }}
-                                            <div class="add-to-cart">
-                                                <input type="hidden" name="productId" value="{{ product.id }}"/>
-                                                <button class="btn btn-primary btn-large" href="#" id="add_to_cart">
-                                                <i class="icon-plus"></i> &nbsp; Add to cart</button>
-                                            </div>
-                                        {% else %}
-                                            <div class="not-available">
-                                                <p>
-                                                This product is temporarily unavailable.
-                                                {% if product.om('expected_availability_date', posted_options) %}
-                                                <br/>The expected availability date is <strong>{{ product.om('expected_availability_date', posted_options).format('%x') }}</strong>
-                                                {% endif %}
-                                                </p>
-                                            </div>
-                                        {% endif %}
-                                    {% else %}
-                                        <div class="not-available"><p>This product is not available.</p></div>
-                                    {% endif %}
-                                    
-                                </div>
-                                <!-- End id="product" -->
-
-                                <!-- Description tab -->
-                                <div class="tab-pane" id="description" itemprop="description">
-                                    {{ product.description|unescape }}
-                                </div>
-                                <!-- End id="description" -->
-                            </div>
-                            <!-- End tab panels container -->
-
-                        </div>
-
-                    </div>
-                    <!-- End class="product-content" -->
-
-                </div>
+                  </div>
+                {% endif %}
+              </div>
             </div>
+          </div>
+          <div class="span8">
+            <!-- Product content -->
+            <div class="product-content">
+              <div class="box">
+                <!-- Tab panels' navigation -->
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#product" data-toggle="tab">
+                      <i class="icon-reorder icon-large"></i>
+                      <span class="hidden-phone">Product</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#description" data-toggle="tab">
+                      <i class="icon-info-sign icon-large"></i>
+                      <span class="hidden-phone">Info</span>
+                    </a>
+                  </li>
+                </ul>
+                <!-- End Tab panels' navigation -->
+                <!-- Tab panels container -->
+                <div class="tab-content">
+                  <!-- Product tab -->
+                  <div class="tab-pane active" id="product" itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer">
+                    <div class="details">
+                      {{ flash() }}
+                      <h1 itemprop="name">{{ product.name }}</h1>
+                      {% if on_sale %}
+                        <div class="prices on-sale">
+                          <span class="on-sale-price">{{ product.fullPrice|currency }}</span>
+                        </div>
+                      {% endif %}
+                      <div class="prices">
+                        <span class="price" itemprop="price">{{ product.price|currency }}</span>
+                        <meta itemprop="currency" content="USD" />
+                      </div>
+                      <div class="meta">
+                        <div class="sku">
+                          <i class="icon-pencil"></i>
+                          <span itemprop="identifier" content="sku" rel="tooltip" title="SKU is {{ product.sku }}">{{ product.sku }}</span>
+                        </div>
+                        <div class="categories">
+                          <ul class="links">
+                            {% for category in product.categories %}
+                              <span itemprop="category"><i class="icon-tags"></i><a href="/category/{{ category.fullUrlName }}" title="{{ category.name }}">{{ category.name }}</a></span>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {% if product.short_description %}
+                      <div class="short-description">
+                        {{ product.short_description|unescape }}
+                      </div>
+                    {% endif %}
+
+
+
+                    {% if theme.ratingToggle %}
+                      <div class="product-rating-container">
+                        <!-- product ratings -->
+                        {% set product_rating = product.rating() %}
+                        <p style="display: inline;">
+                          {% if product_rating.total_reviews %}
+                            <span style="margin-right: -4px">
+                              {% for i in range(1, product_rating.average_int) %}
+                                &starf;
+                              {% endfor %}
+                            </span>
+                            {% if product_rating.average_int != 5 %}
+                              {% for i in range(1, 5 - product_rating.average_int) %}
+                                &star;
+                              {% endfor %}
+                            {% endif %}
+                            ({{ product_rating.total_reviews }})&nbsp;
+                            <!-- View Review -->
+                            <a data-toggle="modal" data-target="#viewModal" href="#">View Review(s)</a>
+                            &nbsp;&nbsp;|&nbsp;&nbsp;
+                          {% else %}
+                            &star;&star;&star;&star;&star;
+                            (no reviews yet)
+                          {% endif %}
+                          <!-- Write Review -->
+                          <a data-toggle="modal" data-target="#writeModal" href="#">Write Review</a>
+                        </p>
+
+                        {{ partial('shop-product-review-view') }}
+                      </div>
+                    {% endif %}
+
+                    {{ partial('shop-product-options') }}
+                    {{ partial('shop-product-extras') }}
+                    <hr />
+                    <div class="row-fluid">
+                      {% if product.priceTiers.count or product.productAttributes.count %}
+                        <div class="span6">
+                            {{ partial('shop-product-pricingTiers') }}
+                        </div>
+                      {% endif %}
+                      <div class="{% if product.priceTiers %} span6 {% else %} span12 {% endif %}">
+                          {{ partial('shop-product-attributes') }}
+                      </div>
+                    </div>
+
+                    {% if product.enabled %}
+                      {% if not product.isOutOfStock() or product.allow_preorder %}
+
+                        <div class="add-to-cart">
+                          <div class="stock-level">{{ product.in_stock_amount }} available</div>
+                          <input type="hidden" name="productId" value="{{ product.id }}"/>
+                          <button class="btn btn-primary btn-large" href="#" id="add_to_cart">
+                          <i class="icon-plus"></i> &nbsp; Add to cart</button>
+                        </div>
+                      {% else %}
+                        <div class="not-available">
+                          <p>
+                            This product is temporarily unavailable.
+                            {% if product.om('expected_availability_date', posted_options) %}
+                            <br/>The expected availability date is <strong>{{ product.om('expected_availability_date', posted_options).format('%x') }}</strong>
+                            {% endif %}
+                          </p>
+                        </div>
+                      {% endif %}
+                    {% else %}
+                      <div class="not-available"><p>This product is not available.</p></div>
+                    {% endif %}
+                  </div>
+                  <!-- End id="product" -->
+
+                  <!-- Description tab -->
+                  <div class="tab-pane" id="description" itemprop="description">
+                    {{ product.description|unescape }}
+                  </div>
+                  <!-- End id="description" -->
+                </div>
+                <!-- End tab panels container -->
+              </div>
+            </div>
+            <!-- End class="product-content" -->
+          </div>
         </div>
+        <div class="row">
+          <div class="span12 related-items">
+            <h3>Related items</h3>
+            {% for product in product.crosssells %}
+                {{ partial('shop-product-grid-item', {'product':product}) }}
+            {% endfor %}
+            {% for product in product.upsells %}
+                {{ partial('shop-product-grid-item', {'product':product}) }}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     </section>
     <!-- End class="product-info" -->
     {% if theme.fbCommentsAppIDText > 0 %} <!-- if Facebook App ID is entered, display comments -->
@@ -156,7 +218,7 @@
 
                 <!-- Facebook comments -->
                 <div id="fb-root"></div>
-                <script>                            
+                <script>
                     (function(d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0];
                         if (d.getElementById(id))
@@ -168,13 +230,13 @@
                     }(document, 'script', 'facebook-jssdk'));
                 </script>
 
-                <div class="fb-comments" data-width="730" data-href="https:{{ site_url('/') }}product/{{ product.url_name}}" data-num-posts="10"></div> 
+                <div class="fb-comments" data-width="730" data-href="https:{{ site_url('/') }}product/{{ product.url_name}}" data-num-posts="10"></div>
                 <!-- For comments to work properly, you first need to create an app in facebook, then add a platform for website and then enter your store's site URL. Then paste App ID into theme custom option. -->
-                
+
                 <!-- End Facebook comments -->
-                
+
             </div>
-        </div>		
+        </div>
     </section>
     <!-- End class="product-reviews" -->
     {% endif %}
