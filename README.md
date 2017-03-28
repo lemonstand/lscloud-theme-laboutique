@@ -17,7 +17,7 @@ La Boutique’s versatility provides you with the tools to weave elegant eCommer
 
 
 
-##Template features and options
+## Template features and options
 
 * Fully responsive down to mobile (5 breakpoints for perfect viewing on mobiles, tablets, small screens and large screens!)  
   
