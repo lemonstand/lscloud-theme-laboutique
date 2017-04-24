@@ -1,0 +1,164 @@
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+      {{ flash() }}
+      {{ open_form({'data-ajax-handler': 'shop:onUpdateCustomerProfile', 'class': 'custom', 'data-ajax-update': "#profile-addresses=shop-customerprofile,#profile-changepassword=shop-changepassword", 'data-validation-message' : ''}) }}
+        <input type="hidden" name="billing[id]" value="{{ billing.id }}" />
+        <div class="row-fluid">
+          <div class="span6">
+            <h3>Billing information</h3>
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="first_name">First Name</label>
+                <input name="billing[first_name]" id="first_name" type="text" class="text" value="{{ billing.first_name }}"/>
+                <span class="error"></span>
+              </div>
+              <div class="span6">
+                <label for="last_name">Last Name</label>
+                <input name="billing[last_name]" id="last_name" type="text" class="text" value="{{ billing.last_name }}"/>
+                <span class="error"></span>
+              </div>
+            </div>
+
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="email">E-mail Address</label>
+                <input type="text" name="billing[email]" id="email" value="{{ customer.email }}" />
+                <span class="error"></span>
+              </div>
+              <div class="span6">
+                <label for="phone">Phone Number</label>
+                <input type="text" name="billing[phone]" id="phone" value="{{ billing.phone }}"/>
+                <span class="error"></span>
+              </div>
+            </div>
+
+            <label for="billing_address">Address</label>
+            <textarea id="billing_address" name="billing[street_address]">{{ billing.street_address }}</textarea>
+            <span class="error"></span>
+
+            <label for="billing_address">Address 2</label>
+            <textarea id="billing_address" name="billing[street_address_line2]">{{ billing.street_address_line2 }}</textarea>
+            <span class="error"></span>
+
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="billing_city">City</label>
+                <input type="text" name="billing[city]" id="billing_city" value="{{ billing.city }}"/>
+                <span class="error"></span>
+              </div>
+              <div class="span6">
+                <label for="billing_zip">Zip Code</label>
+                <input type="text" id="billing_zip" name="billing[postal_code]" value="{{ billing.postal_code }}"/>
+                <span class="error"></span>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="billing_country">Country</label>
+                <!--
+                  The state selector updates automatically when the country changes.
+                  See app.js for the implementation details.
+                -->
+                <select id="billing_country" name="billing[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billing.country.id }}">
+                  {% for country in countries %}
+                    <option {{ option_state(billing.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                  {% endfor %}
+                </select>
+                <span class="error"></span>
+              </div>
+              <div class="span6">
+                <label for="billing_state">State</label>
+                <select id="billing_state" name="billing[shop_state_id]" data-ajax-refresh >
+                  {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billing.state.id}) }}
+                </select>
+                <span class="error"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="span6">
+            <h3 class="inline-block">Shipping information</h3>
+            <a href="#" id="profile_billing_to_shipping"
+              data-ajax-handler="shop:onUpdateCustomerProfile"
+              data-ajax-update="#profile-addresses=shop-customerprofile"
+              data-validation-message=""
+              data-ajax-extra-fields="copy_billing_to_shipping='1'"
+            >Copy Shipping Information</a>
+            <input type="hidden" name="shipping[id]" value="{{ shipping.id }}" />
+
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="shipping_first_name">First Name</label>
+                <input type="text" name="shipping[first_name]" id="shipping_first_name" value="{{ shipping.first_name }}"/>
+                <span class="error"></span>
+              </div>
+              <div class="span6">
+                <label for="shipping_last_name">Last Name</label>
+                <input type="text" name="shipping[last_name]" id="shipping_last_name" value="{{ shipping.last_name }}"/>
+                <span class="error"></span>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span12">
+                <label for="shipping_phone">Phone Number</label>
+                <input type="text" name="shipping[phone]" id="shipping_phone" value="{{ shipping.phone }}"/>
+                <span class="error"></span>
+              </div>
+            </div>
+
+            <label for="shipping_address">Address</label>
+            <textarea name="shipping[street_address]" id="shipping_address">{{ shipping.street_address }}</textarea>
+            <span class="error"></span>
+
+            <label for="shipping_address">Address 2</label>
+            <textarea name="shipping[street_address_line2]" id="shipping_address_line2">{{ shipping.street_address_line2 }}</textarea>
+            <span class="error"></span>
+
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="shipping_city">City</label>
+                <input type="text" name="shipping[city]" id="shipping_city" value="{{ shipping.city }}"/>
+                <span class="error"></span>
+              </div>
+              <div class="span6">
+                <label for="shipping_zip">Zip Code</label>
+                <input type="text" name="shipping[postal_code]" id="shipping_zip" value="{{ shipping.postal_code }}"/>
+                <span class="error"></span>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span6">
+                <label for="shipping_country">Country</label>
+                <select id="shipping_country" name="shipping[shop_country_id]" data-state-selector="#shipping_state" data-current-state="{{ shipping.country.id }}">
+                  {% for country in countries %}
+                    <option {{ option_state(shipping.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                  {% endfor %}
+                </select>
+                <span class="error"></span>
+              </div>
+              <div class="span6">
+                <label for="shipping_state">State</label>
+                <select id="shipping_state" name="shipping[shop_state_id]" data-ajax-refresh>
+                  {{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shipping.state.id}) }}
+                </select>
+                <span class="error"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="buttons">
+              <input type="submit" class="btn btn-primary btn-large" value="Save"/>
+              <input type="hidden" name="flash" value="Your profile has been successfully updated."/>
+              <input type="hidden" name="redirect" value="{{ root_url('/profile') }}"/>
+            </div>
+          </div>
+        </div>
+      {{ close_form() }}
+    </div>
+  </div>
+</div>

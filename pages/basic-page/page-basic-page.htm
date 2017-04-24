@@ -9,14 +9,16 @@ url: '/page/:slug'
 <section class="main">
 	<div class="container box">
 		<div class="row">
-	        <div class ="span4 columns">
-	            <img src="{{ featured_image.thumbnail(200, 'auto')|default('http://placehold.it/1000x365') }}" alt="{{ featured_image.alt }}"/>
-	        </div>
-	        <div class ="span8 columns">
-	        	<h1>{{post.title}}</h1>
-	            <div class="basic-page-excerpt" style="margin-bottom: 20px">{{ post.excerpt | unescape }}</div>
-	            <div class="basic-page-body">{{ post.body | unescape }}</div>
-	        </div>
+			{% if featured_image.size > 0 %}
+				<div class ="span4 columns">
+					<img src="{{ featured_image.thumbnail(200, 'auto')}}" alt="{{ featured_image.alt }}"/>
+	      </div>
+			{% endif %}
+      <div class ="span8 columns">
+      	<h1>{{post.title}}</h1>
+          <div class="basic-page-excerpt" style="margin-bottom: 20px">{{ post.excerpt | unescape }}</div>
+          <div class="basic-page-body">{{ post.body | unescape }}</div>
+      </div>
 		</div>
 	</div>
 </section>

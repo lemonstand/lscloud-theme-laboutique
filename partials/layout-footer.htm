@@ -7,7 +7,7 @@
                 <div class="support">
                     <h6>Support</h6>
                     {{ widget_block("footer-menu") }}
-                    
+
                 </div>
                 <!-- End class="support" -->
                 <hr />
@@ -56,6 +56,7 @@
                 <!-- End class="confidence" -->
             </div>
             <div class="span4">
+              {% if theme.newLetterToggle == true %}
                 <!-- Newsletter subscription -->
                 <div class="newsletter">
                     <h6>Newsletter subscription</h6>
@@ -69,8 +70,9 @@
                     <p>Sign up to receive our latest news and updates direct to your inbox</p>
                 </div>
                 <!-- End class="newsletter" -->
-
                 <hr />
+              {% endif %}
+
 
                 <!-- Social icons -->
                 <div class="social">

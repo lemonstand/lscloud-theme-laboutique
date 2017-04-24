@@ -71,3 +71,9 @@ body.modal-backdrop.fade.in {
 .social.social-links {
   text-align: center;
 }
+
+.related-items > ul > li:first {
+  padding-left: 0;
+  margin-left: 0;
+  border:1px solid #cc0000;
+}
