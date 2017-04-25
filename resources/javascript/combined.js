@@ -17629,50 +17629,7 @@ if ( typeof Object.create !== 'function' ) {
 				if(self.options.zoomType == "inner") {
 					self.zoomWindow.css({ backgroundImage: "url('" + self.imageSrc + "')" }); 
 				}
-				/*-------------------END THE ZOOM WINDOW AND LENS----------------------------------*/
-				//touch events
-				self.$elem.bind('touchmove', function(e){    
-					e.preventDefault();
-					var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];  
-					self.setPosition(touch);
 
-				});  
-				self.zoomContainer.bind('touchmove', function(e){ 
-					if(self.options.zoomType == "inner") {
-						self.showHideWindow("show");
-
-					}
-					e.preventDefault();
-					var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];  
-					self.setPosition(touch); 
-
-				});  	
-				self.zoomContainer.bind('touchend', function(e){ 
-					self.showHideWindow("hide");
-					if(self.options.showLens) {self.showHideLens("hide");}
-					if(self.options.tint && self.options.zoomType != "inner") {self.showHideTint("hide");}
-				});  	
-
-				self.$elem.bind('touchend', function(e){ 
-					self.showHideWindow("hide");
-					if(self.options.showLens) {self.showHideLens("hide");}
-					if(self.options.tint && self.options.zoomType != "inner") {self.showHideTint("hide");}
-				});  	
-				if(self.options.showLens) {
-					self.zoomLens.bind('touchmove', function(e){ 
-
-						e.preventDefault();
-						var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];  
-						self.setPosition(touch); 
-					});    
-
-
-					self.zoomLens.bind('touchend', function(e){ 
-						self.showHideWindow("hide");
-						if(self.options.showLens) {self.showHideLens("hide");}
-						if(self.options.tint && self.options.zoomType != "inner") {self.showHideTint("hide");}
-					});  
-				}
 				//Needed to work in IE
 				self.$elem.bind('mousemove', function(e){   
 					if(self.overWindow == false){self.setElements("show");}
