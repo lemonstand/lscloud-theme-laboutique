@@ -129,10 +129,10 @@
                             <h5>Shipping costs and taxes will be evaluated during checkout</h5>
                         </div>
                         <ul class="price-list">
-                            {% if totals.discountTotal > 0 %}
-                                <li>Discount: <strong>{{ totals.discountTotal|currency }}</strong></li>
-                            {% endif %}
                             <li>Subtotal: <strong>{{ totals.subtotal|currency }}</strong></li>
+                            {% if totals.discountTotal > 0 %}
+                                <li>Discount: <strong>- {{ totals.discountTotal|currency }}</strong></li>
+                            {% endif %}
                             {% if totals.totalShippingQuote > 0 %}
                                 <li>Shipping: <strong>{{ totals.totalShippingQuote|currency }}</strong></li>
                             {% endif %}
