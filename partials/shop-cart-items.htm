@@ -60,7 +60,7 @@
                         </td>
     
                         <td data-title="Discount" class="col_discount text-right">
-                            <span class="discount">{{ ((item.quantity * item.product.price) - item.total())|currency }}</span>
+                            <span class="discount">- {{ ((item.quantity * item.product.price) - item.total())|currency }}</span>
                             
                         </td>
     
