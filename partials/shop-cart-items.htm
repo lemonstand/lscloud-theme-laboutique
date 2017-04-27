@@ -12,8 +12,16 @@
                 </tr>
             </thead>
 
-            <tbody>	
+            <tbody>
                 {% for item in items %}
+                  <!--
+                    weird error that happens in this theme when item.total() is called before itemDiscount variable
+                    total under discount will appear properly.  If you remove that itemTotal and replace with item.total()
+                    discount will disappear.
+                  -->
+                  {% set itemTotal = item.total() %}
+                  {% set itemDiscount = ((item.quantity * item.product.price) - itemTotal) %}
+
                     <tr>
                         <td data-title="Product" class="col_product text-left">
                             <div class="image visible-desktop">
@@ -21,23 +29,23 @@
                                     <img src="{{ item.product.images.first.thumbnail(60, 60)|default('http://placehold.it/80x80') }}">
                                 </a>
                             </div>
-    
+
                             <h5>
                                 <a href="/product/{{ item.product.url_name }}">{{ item.product.name }}</a>
                             </h5>
-    
+
                             <ul class="options">
                             {% set description = item.optionsString() %}
                                 {% if description %}
                                     <li>{{ description|unescape }}</li>
                                 {% endif %}
                             </ul>
-                            
+
                         </td>
-                        
+
                         {%if edit_cart %}
                             <td data-title="Remove" class="col_remove text-right">
-                                <a href="#" data-ajax-handler="shop:cart" 
+                                <a href="#" data-ajax-handler="shop:cart"
                                     data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart"
                                     data-ajax-extra-fields="delete_item='{{ item.key }}'">
                                     <i class="icon-trash icon-large"></i>
@@ -46,7 +54,7 @@
                         {% else %}
                             <td class="col_remove text-right"></td>
                         {% endif %}
-                        
+
                         {%if edit_cart %}
                             <td data-title="Qty" class="col_qty text-right">
                                 <input type="text" name="item_quantity[{{ item.key }}]" value="{{ item.quantity }}" />
@@ -54,16 +62,17 @@
                         {% else %}
                             <td data-title="Qty" class="col_qty text-right">{{ item.quantity }}</td>
                         {% endif %}
-                        
+
                         <td data-title="Single" class="col_single text-right">
                             <span class="single-price">{{ item.product.price|currency }}</span>
                         </td>
-    
-                        <td data-title="Discount" class="col_discount text-right">
-                            <span class="discount">{{ ((item.quantity * item.product.price) - item.total())|currency }}</span>
-                            
-                        </td>
-    
+
+                        {% if itemDiscount > 0 %}
+                          <td data-title="Discount" class="col_discount text-right"><span class="discount">{{ itemDiscount|currency }}</span></td>
+                        {% else %}
+                          <td data-title="Discount" class="col_discount text-right">&nbsp;</td>
+                        {% endif %}
+
                         <td data-title="Total" class="col_total text-right">
                             <span class="total-price">{{ item.total()|currency }}</span>
                         </td>
