@@ -1,12 +1,48 @@
 {% if paymentMethod is defined %}
-    {% set name = paymentMethod.getFrontendPartialName() %}
-    {{ partial(name, {paymentMethod: paymentMethod, payment: payment}) }}
+    {% if paymentMethod.isLegacy() %}
+        <p>
+            This payment method type is no longer supported. Create a standard or custom method.
+        </p>
+    {% elseif paymentMethod.isStandard() %}
+        <!-- Render iFrame payment form if a standard-type payment method. -->
+        {% if hasFeature('saved-cards') %}
+            {% set saved_card_enabled = true %}
+        {% else %}
+            {% set saved_card_enabled = false %}
+        {% endif %}
+        {{ paymentForm({
+                options: {
+                    number: {
+                        placeholder: 'Card number',
+                    },
+                    cvv: {
+                        placeholder: '***',
+                    },
+                    full_name: {
+                        placeholder: 'Cardholder name',
+                    },
+                    expiry: {
+                        placeholder: 'MM/YYYY',
+                    },
+                    submit: {
+                        value: 'Pay Now'
+                    },
+                    save_card: {
+                        label: 'Save Card',
+                        enabled: saved_card_enabled
+                    }
+                }
+            },
+            paymentMethod
+        ) }}
+    {% elseif paymentMethod.isCustom() %}
+        {% set name = paymentMethod.getFrontendPartialName() %}
+        {{ partial(name, {paymentMethod: paymentMethod, payment: payment}) }}
+    {% endif %}
 {% else %}
-  {% set message = payment_method.pay_offline_message() %}
-  {% if message %}
-    <p>{{ message }}</p>
-  {% else %}
-    <p>This payment method has no payment form.</p>
+    <p>
+      This payment method has no payment form.
+    </p>
     <div class="box-footer">
         <div class="pull-left">
             <a class="btn btn-small" href="#"
