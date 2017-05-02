@@ -43,11 +43,11 @@
                         <td data-title="Qty" class="col_qty text-right">{{ item.quantity|number_format(0) }}</td>
                         
                         <td data-title="Single" class="col_single text-right">
-                            <span class="single-price">{{ item.pivot.price|currency }}</span>
+                            <span class="single-price">{{ item.product.price|currency }}</span>
                         </td>
     
                         <td data-title="Discount" class="col_discount text-right">
-                            <span class="discount">{{ 0|currency }}</span>
+                            <span class="discount">- {{ ((item.quantity * item.product.price) - item.total())|currency }}</span>
                         </td>
     
                         <td data-title="Total" class="col_total text-right">
