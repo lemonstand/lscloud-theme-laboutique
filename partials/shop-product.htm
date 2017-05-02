@@ -162,10 +162,15 @@
                       {% if not product.isOutOfStock() or product.allow_preorder %}
 
                         <div class="add-to-cart">
-                          <div class="stock-level">{{ product.in_stock_amount }} available</div>
+                          <div class="quantity inline">
+                  					<h5>Quantity</h5>
+                  					<input class="md-input quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>
+                  				</div>
+
                           <input type="hidden" name="productId" value="{{ product.id }}"/>
                           <button class="btn btn-primary btn-large" href="#" id="add_to_cart">
                           <i class="icon-plus"></i> &nbsp; Add to cart</button>
+                          <div class="stock-level">{{ product.in_stock_amount }} available</div>
                         </div>
                       {% else %}
                         <div class="not-available">
@@ -195,17 +200,22 @@
             <!-- End class="product-content" -->
           </div>
         </div>
-        <div class="row">
-          <div class="span12 related-items">
-            <h3>Related items</h3>
-            {% for product in product.crosssells %}
-                {{ partial('shop-product-grid-item', {'product':product}) }}
-            {% endfor %}
-            {% for product in product.upsells %}
-                {{ partial('shop-product-grid-item', {'product':product}) }}
-            {% endfor %}
+
+        {% if product.crosssells.isEmpty() == false and theme.crossSellToggle == true %}
+          <div class="row">
+            <div class="span12">
+              <h3>Related items</h3>
+              <ul class="product-list isotope">
+                {% for product in product.crosssells %}
+                  {{ partial('shop-product-grid-item', {'product':product}) }}
+                {% endfor %}
+                {% for product in product.upsells %}
+                  {{ partial('shop-product-grid-item', {'product':product}) }}
+                {% endfor %}
+              </ul>
+            </div>
           </div>
-        </div>
+        {% endif %}
       </div>
     </section>
     <!-- End class="product-info" -->

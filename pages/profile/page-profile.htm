@@ -1,0 +1,22 @@
+---
+action: 'shop:customerProfile'
+template: inner
+protocol: all
+published: true
+name: Profile
+url: /profile
+---
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      {% if customer %}
+        <section id="profile-addresses">
+        {{ partial('shop-customerprofile') }}
+        {{ partial('shop-changepassword') }}
+        </section>
+      {% else %}
+        Please <a href="{{ root_url('login') }}">login</a> to edit your profile.
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@
      {% for product in pagination.items %}
       {% set is_on_sale = product.onSale %}
       {% set page_url = '/product/' ~ product.url_name %}
-      
+
         <li class="standard" data-price="{{ product.price}}">
             <a href="{{ page_url }}" title="{{ product.images.first.title }}">
             <div class="image">
@@ -30,7 +30,7 @@
     {% endfor %}
     </ul>
     <!-- End class="product-list isotope" -->
-    
+
     <div class="pagination-centered">
         <div class="pagination">
           {% navigation %}

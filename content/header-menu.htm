@@ -4,23 +4,29 @@ content_type: html
 ---
 
 <ul id="menu-main-navigation" class="main-menu">
-  <li class="{{ active_page == 'home' ? 'active' : null }} menu-item-home menu-item-has-children megamenu-parent"><a href="{{ site_url('/') }}">Home</a></li>
+  <li class="menu-item-home menu-item-has-children megamenu-parent"><a href="/">Home</a></li>
   <li class="menu-item-has-children">
-    <a href="{{ site_url('shop') }}">Shop</a>
-    {% if categories.count %}
-      {% tree categories %}
-        <ul class="sub-menu">
-            {% for category in tree.items %}
-            <li>
-                <a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a>
-                {% branch category.children %}
-            </li>
-            {% endfor %}
-        </ul>
-      {% endtree %}
-    {% endif %}
+    <a href="/shop">Shop</a>
+    <ul class="sub-menu span2">
+      <li>
+        <a href="/category/dog">Dog</a>
+      </li>
+      <li>
+        <a href="/category/mens">Men's</a>
+      </li>
+      <li>
+        <a href="/category/sweaters">Sweaters</a>
+      </li>
+      <li>
+        <a href="/category/tank-tops">Tank Tops</a>
+      </li>
+      <li>
+        <a href="/category/womens">Women's</a>
+      </li>
+    </ul>
   </li>
-  <li class="{{ active_page == 'about-us' ? 'active' : null }} menu-item-about"><a href="{{ site_url('/about-us') }}">About</a></li>
-  <li class="{{ active_page == 'blog' ? 'active' : null }} menu-item-blog"><a href="{{ site_url('/archives/blog') }}">Blog</a></li>
-  <li class="{{ active_page == 'contact-us' ? 'active' : null }} menu-item-contact"><a href="{{ site_url('/contact-us') }}">Contact Us</a></li>
+  <li class="menu-item-about"><a href="/about-us">About</a></li>
+  <li class="menu-item-blog"><a href="/archives/blog">Blog</a></li>
+  <li class="menu-item-page"><a href="/page/testing-page">Basic Page</a></li>
+  <li class="menu-item-contact"><a href="/contact-us">Contact Us</a></li>
 </ul>
