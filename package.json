@@ -9,8 +9,8 @@
     "options": "options.json",
     "demo" : "https//laboutique.lemonstand.com",
     "screenshots" : {
-      "small":"https://raw.githubusercontent.com/lemonstand/lemonstand_laboutique_repository/master/resources/screenshots/tiny-square.png",
-      "large":"https://raw.githubusercontent.com/lemonstand/lemonstand_laboutique_repository/master/resources/screenshots/large-square.png"
+      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-laboutique/master/resources/screenshots/tiny-square.png",
+      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-laboutique/master/resources/screenshots/large-square.png"
     }
   },  
   "scripts": {
