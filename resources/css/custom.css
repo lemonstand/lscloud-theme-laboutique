@@ -77,3 +77,39 @@ body.modal-backdrop.fade.in {
   margin-left: 0;
   border:1px solid #cc0000;
 }
+
+/* Card Form */
+.ls-card-form {
+    width: 100%;
+}
+
+.card-form-expiry-outer label {
+    display: inherit;
+}
+
+.card-table {
+    font-size: 15px;
+    background-color: #F1F1F1;
+}
+
+.card-table th {
+    padding: 10px;
+}
+
+.card-table a,
+.card-table a:hover,
+.card-table a:focus {
+    text-decoration: underline;
+}
+
+.card-form-close {
+    display: none;
+}
+
+.card-form-open {
+    display: block;
+}
+
+.saved-card-selector {
+    width: 100%;
+}
