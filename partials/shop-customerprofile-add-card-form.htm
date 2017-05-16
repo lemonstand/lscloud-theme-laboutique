@@ -1,0 +1,33 @@
+<div class="card-form-close" id="add-card-form">
+    <div class="add-card-form">
+        <h3>Add Card</h3>
+        <div class="add-card-form-container">
+            {{ customerCardForm('add', {
+                options: { 
+                    number:{
+                        label: ' ',
+                        placeholder: 'Card Number', 
+                        style: "font-family: Verdana; letter-spacing: 1px; font-weight: bold; font-size: 15px; color: #8d8d8d; padding: 15px 19px 15px 0px; width: 91%;"
+                    },
+                    cvv: {
+                        label: ' ',
+                        placeholder: 'CVV',
+                        style: "font-family: Verdana; letter-spacing: 1px; font-weight: bold; font-size: 15px; color: #8d8d8d; padding: 15px 19px 15px 0px; width: 91%;"
+                    },
+                    is_default: {
+                        label:'Make my default card'
+                    },
+                    expiry: {
+                        label:' '
+                    },
+                    full_name: {
+                        label:' ',
+                        placeholder: 'Cardholder Name'
+                    },
+                }
+            }, {
+              'data-ajax-update': "#profile-edit-card=shop-customerprofile-edit-card"
+            }) }}
+        </div>
+    </div>
+</div>

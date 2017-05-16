@@ -1,0 +1,57 @@
+<div class='panel'>
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse4">
+            4. Saved Cards
+            </a>
+        </h4>
+    </div>
+
+    <div id="collapse4" class="panel-collapse collapse in">
+        <div class="col-sm-6 panel-body step-4">
+            <div class="field-row">
+                {% if customer.cards|length %}
+                <table class="card-table">
+                    {% for card in customer.cards %}
+                    <tr>
+                        <th>{{card.card_and_brand}}</th>
+                        <th>
+                            <a
+                            id="edit-card"
+                            card="{{card.id}}"
+                            href="javascript:void(0)"
+                            >Edit Card</a>
+                        </th>
+                        <th>
+                            <a
+                            id="delete-card"
+                            href="javascript:void(0)"
+                            data-ajax-handler="shop:onDeleteCustomerCard"
+                            data-ajax-update="#profile-edit-card=shop-customerprofile-edit-card"
+                            data-ajax-extra-fields="deleteCardId='{{ card.id }}'"
+                            >Delete Card</a>
+                        </th>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                    <p>
+                        No saved cards available.
+                    </p>
+                {% endif %}
+            </div>
+            <div class="field-row">
+                <input type="button" id="add-card" class="button md-button" value="Add Card">
+            </div>
+            {{ flash() }}
+        </div>
+
+        <div class="col-sm-6 panel-body step-4">
+            {% for card in customer.cards %}
+                {{ partial('shop-customerprofile-edit-card-form', {'card' : card}) }}
+            {% endfor %}
+            
+            {{ partial('shop-customerprofile-add-card-form') }}
+        </div>
+    </div>
+</div>

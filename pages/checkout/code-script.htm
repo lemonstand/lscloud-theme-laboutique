@@ -1,0 +1,9 @@
+<script>
+    // Handle paying with stored card
+    $('#checkout-page').on('change', '#saved_card_option', function(e) {
+      var token = e.target.value;
+      var optionSelected = '#checkout-page #token-' + token;
+      var method = $(optionSelected).attr('card-method');
+      $('#checkout-page #payment_method_id').val(method);
+    });
+</script>
