@@ -35,14 +35,12 @@
                     </p>
                 {% endif %}
             </div>
-        </div>
 
-        <div class="span6">
-            <div class="row-fluid">
+            <div class="span6">
                 {% for card in customer.cards %}
                     {{ partial('shop-customerprofile-edit-card-form', {'card' : card}) }}
                 {% endfor %}
-            
+        
                 {{ partial('shop-customerprofile-add-card-form') }}
             </div>
         </div>

@@ -79,8 +79,9 @@ body.modal-backdrop.fade.in {
 }
 
 /* Card Form */
+
 .ls-card-form {
-    width: 100%;
+    width: 97%;
 }
 
 .card-form-expiry-outer label {
@@ -112,4 +113,50 @@ body.modal-backdrop.fade.in {
 
 .saved-card-selector {
     width: 100%;
+}
+
+.ls-card-form .card-form-input {
+  background-color: #FFF;
+  color: #555;
+  letter-spacing: inherit;
+  border: 1px solid #CCC;
+  box-shadow: inherit;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.ls-card-form .card-form-input:focus,
+.ls-card-form .card-form-input:hover {
+  border-color: #34a992;
+  background-color: #FFF;
+  font-size: inherit;
+}
+
+.ls-card-form .card-form-input::-webkit-input-placeholder {
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+ 
+.ls-card-form .card-form-input:-moz-placeholder { /* Firefox 18- */
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+ 
+.ls-card-form .card-form-input::-moz-placeholder {  /* Firefox 19+ */
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+ 
+.ls-card-form .card-form-input:-ms-input-placeholder {
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: inherit;
 }
