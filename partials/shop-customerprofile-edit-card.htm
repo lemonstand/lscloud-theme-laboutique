@@ -27,20 +27,23 @@
                     </tr>
                     {% endfor %}
                 </table>
-                <input type="button" id="add-card" class="btn btn-primary btn-large" value="Add Card">
-                {{ flash() }}
+                
                 {% else %}
                     <p>
                         No saved cards available.
                     </p>
                 {% endif %}
+
+                <input type="button" id="add-card" class="btn btn-primary btn-large" value="Add Card">
+                {{ flash() }}
+
             </div>
 
             <div class="span6">
                 {% for card in customer.cards %}
                     {{ partial('shop-customerprofile-edit-card-form', {'card' : card}) }}
                 {% endfor %}
-        
+
                 {{ partial('shop-customerprofile-add-card-form') }}
             </div>
         </div>
