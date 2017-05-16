@@ -1,18 +1,18 @@
 {
-  "name": "laboutique",
+  "name": "La Boutique",
   "version": "1.0.0",
   "description": "La Boutique is a sleek, responsive eCommerce template expertly crafted with Bootstrap to offer 16 stunning color palettes and plenty of gorgeous user interface elements! La Boutique’s versatility provides you with the tools to weave elegant eCommerce sites to suit your products and customers.",
   "main": "index.js",
   "lemonstand" : {
-    "code":"laboutique",
+    "code":"la-boutique",
     "type": "theme",
     "options": "options.json",
     "demo" : "https//laboutique.lemonstand.com",
-    "screenshot" : {
-      "small":"https://raw.githubusercontent.com/lemonstand/lemonstand_laboutique_repository/master/resources/screenshots/tiny-square.png",
-      "large":"https://raw.githubusercontent.com/lemonstand/lemonstand_laboutique_repository/master/resources/screenshots/large-square.png"
+    "screenshots" : {
+      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-laboutique/master/resources/screenshots/tiny-square.png",
+      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-laboutique/master/resources/screenshots/large-square.png"
     }
-  },  
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,7 +24,7 @@
     "responsive",
     "customizable-colors"
   ],
-  "author": "Bruce Alderson <bruce@lemonstand.com> (http://lemonstand.com)",
+  "author": "LemonStand <support@lemonstand.com> (http://docs.lemonstand.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lemonstand/lscloud-theme-laboutique/issues"
