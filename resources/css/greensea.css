@@ -548,7 +548,7 @@ ul {
 .btn-primary:active {
   background-color: #138a72;
 }
-.btn-greensea
+.btn-greensea,
 .ls-card-form .submit-button,
 .ls-card-form .delete-button {
   background-color: #16a085;
