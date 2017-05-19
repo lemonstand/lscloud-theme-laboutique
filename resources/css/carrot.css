@@ -540,132 +540,260 @@ ul {
 .btn-primary:active {
   background-color: #d67118;
 }
-.btn-turquoise {
+.btn-turquoise,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #1abc9c;
 }
 .btn-turquoise:hover,
 .btn-turquoise:focus,
-.btn-turquoise:active {
+.btn-turquoise:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #17a689;
 }
-.btn-greensea {
+.btn-greensea
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #16a085;
 }
 .btn-greensea:hover,
 .btn-greensea:focus,
-.btn-greensea:active {
+.btn-greensea:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #138a72;
 }
-.btn-emerland {
+.btn-emerland,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #2ecc71;
 }
 .btn-emerland:hover,
 .btn-emerland:focus,
-.btn-emerland:active {
+.btn-emerland:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #29b765;
 }
-.btn-nephritis {
+.btn-nephritis,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #27ae60;
 }
 .btn-nephritis:hover,
 .btn-nephritis:focus,
-.btn-nephritis:active {
+.btn-nephritis:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #229955;
 }
-.btn-peterriver {
+.btn-peterriver,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #3498db;
 }
 .btn-peterriver:hover,
 .btn-peterriver:focus,
-.btn-peterriver:active {
+.btn-peterriver:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #258cd1;
 }
-.btn-belizehole {
+.btn-belizehole,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #2980b9;
 }
 .btn-belizehole:hover,
 .btn-belizehole:focus,
-.btn-belizehole:active {
+.btn-belizehole:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #2472a4;
 }
-.btn-amethyst {
+.btn-amethyst,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #9b59b6;
 }
 .btn-amethyst:hover,
 .btn-amethyst:focus,
-.btn-amethyst:active {
+.btn-amethyst:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #8f4bab;
 }
-.btn-wisteria {
+.btn-wisteria,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #8e44ad;
 }
 .btn-wisteria:hover,
 .btn-wisteria:focus,
-.btn-wisteria:active {
+.btn-wisteria:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #7f3d9b;
 }
-.btn-wetasphalt {
+.btn-wetasphalt,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #34495e;
 }
 .btn-wetasphalt:hover,
 .btn-wetasphalt:focus,
-.btn-wetasphalt:active {
+.btn-wetasphalt:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #2b3c4e;
 }
-.btn-midnightblue {
+.btn-midnightblue,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #2c3e50;
 }
 .btn-midnightblue:hover,
 .btn-midnightblue:focus,
-.btn-midnightblue:active {
+.btn-midnightblue:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #233140;
 }
-.btn-sunflower {
+.btn-sunflower,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #f1c40f;
 }
 .btn-sunflower:hover,
 .btn-sunflower:focus,
-.btn-sunflower:active {
+.btn-sunflower:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #dab10d;
 }
-.btn-orange {
+.btn-orange,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #f39c12;
 }
 .btn-orange:hover,
 .btn-orange:focus,
-.btn-orange:active {
+.btn-orange:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #e08e0b;
 }
-.btn-carrot {
+.btn-carrot,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #e67e22;
 }
 .btn-carrot:hover,
 .btn-carrot:focus,
-.btn-carrot:active {
+.btn-carrot:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #d67118;
 }
-.btn-pumpkin {
+.btn-pumpkin,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #d35400;
 }
 .btn-pumpkin:hover,
 .btn-pumpkin:focus,
-.btn-pumpkin:active {
+.btn-pumpkin:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #ba4a00;
 }
-.btn-alizarin {
+.btn-alizarin,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #e74c3c;
 }
 .btn-alizarin:hover,
 .btn-alizarin:focus,
-.btn-alizarin:active {
+.btn-alizarin:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #e43725;
 }
-.btn-pomegranate {
+.btn-pomegranate,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #c0392b;
 }
 .btn-pomegranate:hover,
 .btn-pomegranate:focus,
-.btn-pomegranate:active {
+.btn-pomegranate:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #ab3326;
 }
 .btn-facebook {
