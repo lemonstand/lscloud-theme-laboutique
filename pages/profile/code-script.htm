@@ -1,0 +1,45 @@
+<script>
+    var currentForm = '';
+
+    /*
+     * Show correct form on clicking add card
+     */
+    $('#profile-edit-card').on('click', '#add-card', function() {
+        if(currentForm != '#add-card-form') {
+            clearForm();
+            $('#add-card-form').removeClass('card-form-close');
+            $('#add-card-form').addClass('card-form-open');
+            currentForm = '#add-card-form';
+        }
+    });
+    
+    /*
+     * Show correct form on clicking edit card
+     */
+    $('#profile-edit-card').on('click', '#edit-card', function(e) {
+        var card = '#edit-' + e.target.getAttribute('card');
+
+        if (currentForm != card) {
+            clearForm();
+            $(card).removeClass('card-form-close');
+            $(card).addClass('card-form-open');
+            currentForm = card;
+        }
+    });
+
+    $( window ).on('LsCardFormSuccess', function(event, res, status, xhr, handler, form) {
+        clearForm();
+    });
+
+    $('#profile-edit-card').on('click', '#delete-card', function(e) {
+        clearForm();
+    });
+    
+    function clearForm() {
+        if(currentForm != '') {
+            $(currentForm).addClass('card-form-close');
+            $(currentForm).removeClass('card-form-open');  
+        }
+        currentForm='';
+    }
+</script>

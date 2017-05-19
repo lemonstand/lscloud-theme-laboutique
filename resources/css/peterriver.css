@@ -473,7 +473,8 @@ ul {
 /*---
 | BUTTONS
 ---*/
-.btn {
+.btn,
+.ls-card-form .submit-button {
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   color: #ffffff;
@@ -497,15 +498,22 @@ ul {
   box-shadow: inset 0 -2px 0 rgba(71, 73, 72, 0.050000000000000044);
   /*color: @arguments;*/
 }
-.btn:hover,
 .btn:focus,
-.btn:active {
+.btn:active,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   color: #ffffff;
   background-position: inherit;
   background-color: #b0b0b0;
 }
 .btn:focus,
-.btn:active {
+.btn:active,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   -webkit-box-shadow: inset 0 1px 2px rgba(71, 73, 72, 0.5);
   -moz-box-shadow: inset 0 1px 2px rgba(71, 73, 72, 0.5);
   box-shadow: inset 0 1px 2px rgba(71, 73, 72, 0.5);
@@ -540,133 +548,21 @@ ul {
 .btn-primary:active {
   background-color: #258cd1;
 }
-.btn-turquoise {
-  background-color: #1abc9c;
-}
-.btn-turquoise:hover,
-.btn-turquoise:focus,
-.btn-turquoise:active {
-  background-color: #17a689;
-}
-.btn-greensea {
-  background-color: #16a085;
-}
-.btn-greensea:hover,
-.btn-greensea:focus,
-.btn-greensea:active {
-  background-color: #138a72;
-}
-.btn-emerland {
-  background-color: #2ecc71;
-}
-.btn-emerland:hover,
-.btn-emerland:focus,
-.btn-emerland:active {
-  background-color: #29b765;
-}
-.btn-nephritis {
-  background-color: #27ae60;
-}
-.btn-nephritis:hover,
-.btn-nephritis:focus,
-.btn-nephritis:active {
-  background-color: #229955;
-}
-.btn-peterriver {
+.btn-peterriver,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
   background-color: #3498db;
 }
 .btn-peterriver:hover,
 .btn-peterriver:focus,
-.btn-peterriver:active {
+.btn-peterriver:active,
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover,
+.ls-card-form .submit-button:focus,
+.ls-card-form .delete-button:focus,
+.ls-card-form .submit-button:active,
+.ls-card-form .delete-button:active {
   background-color: #258cd1;
-}
-.btn-belizehole {
-  background-color: #2980b9;
-}
-.btn-belizehole:hover,
-.btn-belizehole:focus,
-.btn-belizehole:active {
-  background-color: #2472a4;
-}
-.btn-amethyst {
-  background-color: #9b59b6;
-}
-.btn-amethyst:hover,
-.btn-amethyst:focus,
-.btn-amethyst:active {
-  background-color: #8f4bab;
-}
-.btn-wisteria {
-  background-color: #8e44ad;
-}
-.btn-wisteria:hover,
-.btn-wisteria:focus,
-.btn-wisteria:active {
-  background-color: #7f3d9b;
-}
-.btn-wetasphalt {
-  background-color: #34495e;
-}
-.btn-wetasphalt:hover,
-.btn-wetasphalt:focus,
-.btn-wetasphalt:active {
-  background-color: #2b3c4e;
-}
-.btn-midnightblue {
-  background-color: #2c3e50;
-}
-.btn-midnightblue:hover,
-.btn-midnightblue:focus,
-.btn-midnightblue:active {
-  background-color: #233140;
-}
-.btn-sunflower {
-  background-color: #f1c40f;
-}
-.btn-sunflower:hover,
-.btn-sunflower:focus,
-.btn-sunflower:active {
-  background-color: #dab10d;
-}
-.btn-orange {
-  background-color: #f39c12;
-}
-.btn-orange:hover,
-.btn-orange:focus,
-.btn-orange:active {
-  background-color: #e08e0b;
-}
-.btn-carrot {
-  background-color: #e67e22;
-}
-.btn-carrot:hover,
-.btn-carrot:focus,
-.btn-carrot:active {
-  background-color: #d67118;
-}
-.btn-pumpkin {
-  background-color: #d35400;
-}
-.btn-pumpkin:hover,
-.btn-pumpkin:focus,
-.btn-pumpkin:active {
-  background-color: #ba4a00;
-}
-.btn-alizarin {
-  background-color: #e74c3c;
-}
-.btn-alizarin:hover,
-.btn-alizarin:focus,
-.btn-alizarin:active {
-  background-color: #e43725;
-}
-.btn-pomegranate {
-  background-color: #c0392b;
-}
-.btn-pomegranate:hover,
-.btn-pomegranate:focus,
-.btn-pomegranate:active {
-  background-color: #ab3326;
 }
 .btn-facebook {
   background-color: #3B5998;

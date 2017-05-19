@@ -77,3 +77,96 @@ body.modal-backdrop.fade.in {
   margin-left: 0;
   border:1px solid #cc0000;
 }
+
+/* Card Form */
+
+.ls-card-form {
+    width: 97%;
+}
+
+.card-form-expiry-outer label {
+    display: inherit;
+}
+
+.card-table {
+    font-size: 15px;
+    background-color: #F1F1F1;
+}
+
+.card-table th {
+    padding: 10px;
+}
+
+.card-table a,
+.card-table a:hover,
+.card-table a:focus {
+    text-decoration: underline;
+}
+.card-form-close {
+    display: none;
+}
+.card-form-open {
+    display: block;
+}
+.saved-card-selector {
+    width: 100%;
+}
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
+  padding: 16px 24px;
+}
+.ls-card-form .card-form-input {
+  background-color: #FFF;
+  color: #555;
+  letter-spacing: inherit;
+  border: 1px solid #CCC;
+  box-shadow: inherit;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 16px;
+}
+.ls-card-form .card-form-input:focus,
+.ls-card-form .card-form-input:hover {
+  border-color: #34a992;
+  background-color: #FFF;
+  font-size: 16px;
+}
+
+.ls-card-form .card-form-input::-webkit-input-placeholder,
+.ls-card-form .card-form-input::-webkit-input-placeholder:focus {
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+.ls-card-form .card-form-input:-moz-placeholder,
+.ls-card-form .card-form-input:-moz-placeholder:focus { /* Firefox 18- */
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+ 
+.ls-card-form .card-form-input::-moz-placeholder,
+.ls-card-form .card-form-input::-moz-placeholder:focus {  /* Firefox 19+ */
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+.ls-card-form .card-form-input:-ms-input-placeholder,
+.ls-card-form .card-form-input:-ms-input-placeholder:focus {
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+.ls-card-form .error-highlight,
+.ls-card-form .error-highlight:focus {
+    border-color: #D34246 !important;
+}
+
+.ls-card-form .valid-highlight,
+.ls-card-form .valid-highlight:focus {
+    border-color: #3DE000 !important;
+}

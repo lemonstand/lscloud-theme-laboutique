@@ -12,14 +12,42 @@
     
                         <!-- Checkout content -->
                         <div id="checkout-content">
+
+                        <!--  Pay with stored cards shown in dropdown -->
+                        {% if cards is defined %}
                             <div class="box-header">
-                                <h3>Payment method</h3>
+                                <h3>Pay with a Saved Card</h3>
+                                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+                            </div>
+                            <div class="box-content">
+                                <form class="custom" method="post" data-ajax-handler="shop:onPay">
+                                  <input type='hidden' name='payment_method_id' id='payment_method_id' value=''>
+
+                                  <div class="row-fluid">
+                                      <select name="payment_method_token" class="span6" id="saved_card_option" style="margin-bottom: 15px;">
+                                        <option value=''> Select Saved Card </option>
+                                        {% for card in cards %}
+                                          <option id="token-{{ card.token }}" value="{{ card.token }}" card-method="{{ card.paymentMethod.id }}">{{ card.paymentMethod.name }}: {{ card.cardAndBrand }}</option>
+                                        {% endfor %}
+                                      </select>
+                                  </div>
+
+                                  <div class="row-fluid">
+                                    <input type="submit" class="btn btn-primary" value="Pay with Saved Card">
+                                  </div>
+                                </form>
+                            </div>
+                            <br>
+                        {% endif %}
+
+                            <div class="box-header">
+                                <h3>Select a Payment Method</h3>
                                 <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
                             </div>
     
-                            {% if order.payment_processed %}
+                        {% if order.payment_processed %}
                             <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
-                            {% else %}
+                        {% else %}
                             <div class="box-content">
                                 <div class="payment-methods">
                                     <div class="row-fluid">
