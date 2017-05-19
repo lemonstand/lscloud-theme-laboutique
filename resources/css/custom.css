@@ -111,6 +111,10 @@ body.modal-backdrop.fade.in {
 .saved-card-selector {
     width: 100%;
 }
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
+  padding: 16px 24px;
+}
 .ls-card-form .card-form-input {
   background-color: #FFF;
   color: #555;
