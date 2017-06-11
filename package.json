@@ -1,7 +1,7 @@
 {
   "name": "La Boutique",
   "version": "1.0.0",
-  "description": "La Boutique is a sleek, responsive eCommerce template expertly crafted with Bootstrap to offer 16 stunning color palettes and plenty of gorgeous user interface elements! La Boutique’s versatility provides you with the tools to weave elegant eCommerce sites to suit your products and customers.",
+  "description": "La Boutique is a sleek, responsive eCommerce theme expertly crafted with Bootstrap to offer 16 stunning color palettes and plenty of gorgeous user interface elements! La Boutique’s versatility provides you with the tools to weave elegant eCommerce sites to suit your products and customers.",
   "main": "index.js",
   "lemonstand" : {
     "code":"la-boutique",
@@ -29,5 +29,12 @@
   "bugs": {
     "url": "https://github.com/lemonstand/lscloud-theme-laboutique/issues"
   },
-  "homepage": "https://github.com/lemonstand/lscloud-theme-laboutique#readme"
+  "homepage": "https://github.com/lemonstand/lscloud-theme-laboutique#readme",
+  "keywords": [
+    "slider",
+    "fashion",
+    "customizable",
+    "bootstrap",
+    "large-catalog"
+  ]
 }
