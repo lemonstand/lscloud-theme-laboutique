@@ -64,11 +64,16 @@
                         {% endif %}
 
                         <td data-title="Single" class="col_single text-right">
-                            <span class="single-price">{{ item.product.price|currency }}</span>
+                        {% if item.product.onSale %}
+                            <span style="text-decoration:line-through; font-size: 10px; color: #939694">{{ item.fullPrice|currency }}&nbsp;&nbsp;</span>
+                            <span class="single-price">{{ item.price()|currency }}</span>
+                        {% else %}
+                            <span class="single-price">{{ item.price|currency }}</span>
+                        {% endif %}
                         </td>
 
-                        {% if itemDiscount > 0 %}
-                          <td data-title="Discount" class="col_discount text-right"><span class="discount">{{ itemDiscount|currency }}</span></td>
+                        {% if item.totalDiscount() > 0 %}
+                          <td data-title="Discount" class="col_discount text-right"><span class="discount">{{ item.totalDiscount()|currency }}</span></td>
                         {% else %}
                           <td data-title="Discount" class="col_discount text-right">&nbsp;</td>
                         {% endif %}
