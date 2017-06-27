@@ -11,52 +11,16 @@ url: /
     <section class="flexslider">
         <ul class="slides">
             <li>
-                <img src="{{ theme.homepageImageBannerA.thumbnail(500, 'auto')}}" alt="" />
-                <div class="caption">
-                    <div class="container">
-                        <div class="span6">
-                            <h3>La Boutique</h3>
-                            <br />
-                            <p>An elegant mobile responsive theme for LemonStand.</p>
-                            <br /> <a class="btn btn-small" title="" href="/about-us">Find out more</a>
-                            <a class="btn btn-primary btn-small" title="" href="#">
-                                Buy now &nbsp; <em class="icon-chevron-right"></em>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+              <img src="{{ theme.homepageImageBannerA.thumbnail(500, 'auto')}}" alt="" />
+              {{ widget_block("carousel-slide-content-1") }}
             </li>
             <li>
                 <img src="{{ theme.homepageImageBannerB.thumbnail(500, 'auto')}}" alt="" />
-                <div class="caption">
-                    <div class="container">
-                        <div class="span6 offset6 text-right">
-                            <h3>16 Different Color Schemes</h3>
-                            <br />
-                            <p>Choose your color scheme and upload your logo to customize it just for you.</p>
-                            <br /> <a class="btn btn-small" title="" href="#">Find out more</a>
-                            <a class="btn btn-primary btn-small" title="" href="#">
-                                Buy now &nbsp; <em class="icon-chevron-right"></em>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {{ widget_block("carousel-slide-content-2") }}
             </li>
             <li>
                 <img src="{{ theme.homepageImageBannerC.thumbnail(500, 'auto')}}" alt="" />
-                <div class="caption">
-                    <div class="container">
-                        <div class="span6">
-                            <h3>360+ Retina-ready icons</h3>
-                            <br />
-                            <p>The iconic Font Awesome for Bootstrap</p>
-                            <br /> <a class="btn btn-small" title="" href="/retina-ready-icons">Find out more</a>
-                            <a class="btn btn-primary btn-small" title="" href="#">
-                                Buy now &nbsp; <em class="icon-chevron-right"></em>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {{ widget_block("carousel-slide-content-3") }}
             </li>
         </ul>
     </section>
