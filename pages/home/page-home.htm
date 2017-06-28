@@ -12,15 +12,33 @@ url: /
         <ul class="slides">
             <li>
               <img src="{{ theme.homepageImageBannerA.thumbnail(500, 'auto')}}" alt="" />
-              {{ widget_block("carousel-slide-content-1") }}
+              <div class="caption">
+                  <div class="container">
+                      <div class="span6">
+                        {{ widget_block("carousel-slide-content-1") }}
+                      </div>
+                  </div>
+              </div>
             </li>
             <li>
                 <img src="{{ theme.homepageImageBannerB.thumbnail(500, 'auto')}}" alt="" />
-                {{ widget_block("carousel-slide-content-2") }}
+                <div class="caption">
+                  <div class="container">
+                    <div class="span6 offset6 text-right">
+                      {{ widget_block("carousel-slide-content-2") }}
+                    </div>
+                  </div>
+                </div>
             </li>
             <li>
                 <img src="{{ theme.homepageImageBannerC.thumbnail(500, 'auto')}}" alt="" />
-                {{ widget_block("carousel-slide-content-3") }}
+                <div class="caption">
+                  <div class="container">
+                    <div class="span6 offset6 text-right">
+                      {{ widget_block("carousel-slide-content-3") }}
+                    </div>
+                  </div>
+                </div>
             </li>
         </ul>
     </section>
