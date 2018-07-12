@@ -29,24 +29,21 @@
                 {% endif %}
                 {% if theme.socialToggle %}
                   <div class="social social-links">
-                    <button class="facebook btn btn-mini share s_facebook">
-                      <i class="icon-facebook-sign"></i> &nbsp;
-                      <span class='badge counter c_facebook'>&nbsp;</span>
-                    </button>
+                    <a href="http://www.facebook.com/sharer/sharer.php?u=http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank" class="facebook btn btn-mini share s_facebook">
+                      <i class="icon-facebook-sign"></i>
+                    </a>
 
-                    <button class="twitter btn btn-mini share s_twitter">
+                    <a href="https://twitter.com/intent/tweet?text={{ product.name }} http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank" class="twitter btn btn-mini share s_twitter">
                         <i class="icon-twitter-sign"></i>
-                    </button>
+                    </a>
 
-                    <button class="google btn btn-mini share s_plus">
-                        <i class="icon-google-plus-sign"></i> &nbsp;
-                        <span class='badge counter c_plus'>&nbsp;</span>
-                    </button>
+                    <a href="https://plus.google.com/share?url=http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank" class="google btn btn-mini share s_plus">
+                        <i class="icon-google-plus-sign"></i>
+                    </a>
 
-                    <button class="pinterest btn btn-mini share s_pinterest">
-                        <i class="icon-pinterest-sign"></i> &nbsp;
-                        <span class='badge counter c_pinterest'>&nbsp;</span>
-                    </button>
+                    <a href="http://pinterest.com/pin/create/button/?url=http:{{ site_url('/') }}product/{{ product.url_name}}&media={{ product.images.first.thumbnail(746, 'auto') }}" target="_blank" class="pinterest btn btn-mini share s_pinterest">
+                        <i class="icon-pinterest-sign"></i>
+                    </a>
 
                   </div>
                 {% endif %}
