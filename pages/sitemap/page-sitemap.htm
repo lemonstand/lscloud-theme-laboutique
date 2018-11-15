@@ -1,0 +1,46 @@
+---
+action: 'shop:products'
+template: xml
+protocol: all
+published: true
+name: Sitemap
+url: /products.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for product in products %}
+ <url>
+  {% set page_url = "https:#{site_url('/')}product/#{product.url_name}" %}
+   <loc>{{ page_url }}</loc>
+   <lastmod>{{ product.updated_at|date("Y-m-d\\TH:i:sP") }}</lastmod>   
+ </url>
+{% endfor %}
+
+{% for post in cmsContent('blog') %}
+ <url>
+  {% set page_url = "#{post.permalink}" %}
+  <loc>{{ page_url }}</loc>
+  <lastmod>{{ post.published_on | date("Y-m-d\\TH:i:sP") }}</lastmod>   
+ </url>
+{% endfor %}
+
+{% for url, code in pages %}
+{% set page_url = "https:#{site_url('/')}#{url}" %}
+ {% if '/:' not in page_url %}
+  <url>
+   <loc>{{ page_url | replace({"m//": "m/"}) }}</loc>
+   <lastmod>{{ page.published_on | date("Y-m-d\\TH:i:sP") }}</lastmod> 
+  </url>
+ {% endif %}
+{% endfor %}
+
+{% for category in categories %}
+ <url>
+  {% set page_url = "https:#{site_url('/')}/category/#{category.url_name}" %}
+  <loc>{{ page_url | replace({"m//": "m/"}) }}</loc>
+  <lastmod>{{ post.published_on | date("Y-m-d\\TH:i:sP") }}</lastmod>   
+ </url>
+{% endfor %}
+</urlset>
+
+
